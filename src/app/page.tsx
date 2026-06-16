@@ -1,53 +1,69 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const cases = [
   {
     href: "/work/chatgenet",
+    liveUrl: "https://www.getchatgenet.com",
     tag: "AI Healthcare",
+    tagColor: "text-rose-600 bg-rose-50",
     title: "ChatGeneT",
     description: "AI patient simulator for clinical training",
-    detail:
-      "Realistic multi-turn consultations so junior clinicians can practice history-taking before seeing real patients. Built the eval framework, dialogue taxonomy, and release gates.",
-    metrics: ["30+ hospitals", "500+ clinicians", "0.31% hallucination rate", "4.5/5 CSAT"],
-    accent: "from-rose-500 to-pink-600",
-    light: "bg-rose-50",
-    tag_color: "text-rose-600",
+    image: "/projects/chatgenet.png",
+    imageAlt: "ChatGeneT patient simulation interface",
+    imageBg: "bg-gray-900",
+    metrics: ["30+ hospitals", "500+ clinicians", "0.31% hallucination rate"],
+    links: [
+      { label: "Live site", url: "https://www.getchatgenet.com", external: true },
+      { label: "Case study", url: "/work/chatgenet", external: false },
+    ],
   },
   {
     href: "/work/valence",
+    liveUrl: "https://getvalence.io",
     tag: "Agent Marketplace",
+    tagColor: "text-violet-600 bg-violet-50",
     title: "Valence",
     description: "Marketplace where experts monetize what they know",
-    detail:
-      "Built the teach-test-publish loop for domain experts to ship AI agents. Owned product, front-end design, and supply curation from day one.",
-    metrics: ["10+ self-built agents", "45–70 curated agents", "0→1 product build"],
-    accent: "from-violet-500 to-indigo-600",
-    light: "bg-violet-50",
-    tag_color: "text-violet-600",
+    image: "/projects/valence.png",
+    imageAlt: "Valence agent marketplace",
+    imageBg: "bg-gray-50",
+    metrics: ["10+ self-built agents", "45–70 curated", "0→1 product"],
+    links: [
+      { label: "Live site", url: "https://getvalence.io", external: true },
+      { label: "Case study", url: "/work/valence", external: false },
+    ],
   },
   {
     href: "/work/repurpose",
+    liveUrl: null,
     tag: "AI Workflow",
+    tagColor: "text-emerald-600 bg-emerald-50",
     title: "Repurpose",
     description: "AI content redistribution pipeline",
-    detail:
-      "Ingests long-form content and generates platform-native drafts across X, LinkedIn, and Xiaohongshu with per-account persona config. Built end to end.",
+    image: "/projects/repurpose.png",
+    imageAlt: "Repurpose — GitHub repo",
+    imageBg: "bg-gray-50",
     metrics: ["Claude generation", "X + LinkedIn APIs", "Per-account personas"],
-    accent: "from-emerald-500 to-teal-600",
-    light: "bg-emerald-50",
-    tag_color: "text-emerald-600",
+    links: [
+      { label: "GitHub", url: "https://github.com/emma-devhub", external: true },
+      { label: "Case study", url: "/work/repurpose", external: false },
+    ],
   },
   {
     href: "/work/beigebook",
+    liveUrl: null,
     tag: "LLM Research · ACM ICAIF",
+    tagColor: "text-amber-600 bg-amber-50",
     title: "Decoding the Beige Book",
-    description: "LLM pipeline for macro risk signals",
-    detail:
-      "End-to-end text-to-signal system across 526 Fed Beige Books. Multi-model ensemble with LiRA prompting and temporal masking for recession nowcasting.",
-    metrics: ["526 documents", "56K+ topic entries", "F1 0.89", "Oral presentation"],
-    accent: "from-amber-500 to-yellow-500",
-    light: "bg-amber-50",
-    tag_color: "text-amber-600",
+    description: "LLM pipeline for macro recession signals",
+    image: "/projects/beigebook.png",
+    imageAlt: "LLM sentiment signal vs NBER recessions chart",
+    imageBg: "bg-[#FAFAF8]",
+    metrics: ["526 documents", "F1 0.89", "Oral presentation"],
+    links: [
+      { label: "Case study", url: "/work/beigebook", external: false },
+    ],
   },
 ];
 
@@ -55,79 +71,122 @@ export default function Home() {
   return (
     <div className="pt-24">
       {/* Hero */}
-      <section className="max-w-4xl mx-auto px-6 pt-16 pb-20">
-        <p className="font-[family-name:var(--font-libre)] text-sm tracking-widest text-gray-400 uppercase mb-6">
-          Emma Sun
-        </p>
-        <h1 className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl text-[#1a1a2e] leading-tight mb-8">
+      <section className="max-w-5xl mx-auto px-6 pt-14 pb-16">
+        <h1 className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl text-[#1a1a2e] leading-tight mb-6">
           I build AI products for complex,
           <br className="hidden md:block" /> high-stakes workflows.
         </h1>
-        <p className="font-[family-name:var(--font-libre)] text-lg text-gray-500 leading-relaxed max-w-2xl">
-          My work sits at the intersection of product systems, LLM evaluation, workflow design,
-          and domain-specific AI. Previously at JPMorgan and Commure. Now at Valence.
-        </p>
+        <div className="flex flex-wrap gap-2 mt-2">
+          {[
+            "Co-founder @ Valence · ChatGeneT",
+            "30+ hospitals · 500+ clinicians",
+            "Healthcare, finance & expert workflows",
+          ].map((chip) => (
+            <span
+              key={chip}
+              className="font-[family-name:var(--font-libre)] text-sm text-gray-500 bg-gray-50 border border-gray-200 rounded-full px-4 py-1.5"
+            >
+              {chip}
+            </span>
+          ))}
+        </div>
       </section>
 
-      {/* Selected Work */}
-      <section className="max-w-4xl mx-auto px-6 pb-24">
-        <p className="font-[family-name:var(--font-libre)] text-xs tracking-widest text-gray-400 uppercase mb-10">
-          Selected Work
-        </p>
-        <div className="grid md:grid-cols-2 gap-6">
+      {/* Product gallery */}
+      <section className="max-w-5xl mx-auto px-6 pb-24">
+        <div className="grid md:grid-cols-2 gap-5">
           {cases.map((c) => (
-            <Link
-              key={c.href}
-              href={c.href}
-              className="group block border border-gray-100 rounded-xl p-7 hover:border-gray-300 hover:shadow-sm transition-all duration-200"
+            <div
+              key={c.title}
+              className="group rounded-2xl overflow-hidden border border-gray-100 hover:border-gray-300 hover:shadow-md transition-all duration-200 flex flex-col"
             >
-              <div className={`inline-flex items-center px-2.5 py-1 rounded-full ${c.light} mb-5`}>
-                <span className={`font-[family-name:var(--font-libre)] text-xs font-medium ${c.tag_color}`}>
-                  {c.tag}
-                </span>
+              {/* Screenshot */}
+              <Link href={c.href} className={`block relative overflow-hidden ${c.imageBg}`} style={{ aspectRatio: "16/10" }}>
+                <Image
+                  src={c.image}
+                  alt={c.imageAlt}
+                  fill
+                  className="object-cover object-top group-hover:scale-[1.02] transition-transform duration-300"
+                />
+              </Link>
+
+              {/* Card body */}
+              <div className="p-5 flex flex-col gap-3 flex-1">
+                <div className="flex items-start justify-between">
+                  <div>
+                    <span className={`font-[family-name:var(--font-libre)] text-xs font-medium px-2 py-0.5 rounded-full ${c.tagColor}`}>
+                      {c.tag}
+                    </span>
+                    <h2 className="font-[family-name:var(--font-playfair)] text-xl text-[#1a1a2e] mt-1.5">
+                      {c.title}
+                    </h2>
+                  </div>
+                </div>
+
+                <p className="font-[family-name:var(--font-libre)] text-sm text-gray-500">
+                  {c.description}
+                </p>
+
+                {/* Metrics */}
+                <div className="flex flex-wrap gap-1.5">
+                  {c.metrics.map((m) => (
+                    <span
+                      key={m}
+                      className="font-[family-name:var(--font-libre)] text-xs text-gray-500 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-full"
+                    >
+                      {m}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Links */}
+                <div className="flex gap-4 pt-1 mt-auto">
+                  {c.links.map((l) =>
+                    l.external ? (
+                      <a
+                        key={l.label}
+                        href={l.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-[family-name:var(--font-libre)] text-xs font-medium text-blue-600 hover:underline"
+                      >
+                        {l.label} ↗
+                      </a>
+                    ) : (
+                      <Link
+                        key={l.label}
+                        href={l.url}
+                        className="font-[family-name:var(--font-libre)] text-xs font-medium text-gray-500 hover:text-[#1a1a2e] transition-colors"
+                      >
+                        {l.label} →
+                      </Link>
+                    )
+                  )}
+                </div>
               </div>
-              <h2 className="font-[family-name:var(--font-playfair)] text-2xl text-[#1a1a2e] mb-2 group-hover:text-blue-600 transition-colors">
-                {c.title}
-              </h2>
-              <p className="font-[family-name:var(--font-libre)] text-sm text-gray-500 mb-4">
-                {c.description}
-              </p>
-              <p className="font-[family-name:var(--font-libre)] text-sm text-gray-600 leading-relaxed mb-5">
-                {c.detail}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {c.metrics.map((m) => (
-                  <span
-                    key={m}
-                    className="font-[family-name:var(--font-libre)] text-xs text-gray-500 bg-gray-50 px-2.5 py-1 rounded-full border border-gray-100"
-                  >
-                    {m}
-                  </span>
-                ))}
-              </div>
-            </Link>
+            </div>
           ))}
         </div>
       </section>
 
       {/* Writing */}
-      <section className="max-w-4xl mx-auto px-6 py-16 border-t border-gray-100">
-        <p className="font-[family-name:var(--font-libre)] text-xs tracking-widest text-gray-400 uppercase mb-8">
+      <section className="max-w-5xl mx-auto px-6 py-14 border-t border-gray-100">
+        <p className="font-[family-name:var(--font-libre)] text-xs tracking-widest text-gray-400 uppercase mb-6">
           Writing
         </p>
         <a
           href="https://medium.com/@emmayisun/the-agentic-future-is-here-what-i-predicted-in-2024-and-what-actually-happened-d923e1b54af1"
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex items-start gap-5"
+          className="group flex items-start gap-4"
         >
-          <div className="flex-shrink-0 w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center mt-0.5">
-            <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+          <div className="flex-shrink-0 w-9 h-9 bg-gray-900 rounded-lg flex items-center justify-center mt-0.5">
+            <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor">
               <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
             </svg>
           </div>
           <div>
-            <p className="font-[family-name:var(--font-libre)] text-xs text-gray-400 mb-1">Medium</p>
+            <p className="font-[family-name:var(--font-libre)] text-xs text-gray-400 mb-0.5">Medium</p>
             <h3 className="font-[family-name:var(--font-playfair)] text-lg text-[#1a1a2e] group-hover:underline">
               The Agentic Future Is Here: What I Predicted in 2024, and What Actually Happened
             </h3>
@@ -136,11 +195,11 @@ export default function Home() {
       </section>
 
       {/* Contact */}
-      <section className="max-w-4xl mx-auto px-6 py-16 border-t border-gray-100">
+      <section className="max-w-5xl mx-auto px-6 py-14 border-t border-gray-100">
         <p className="font-[family-name:var(--font-libre)] text-xs tracking-widest text-gray-400 uppercase mb-4">
           Get in Touch
         </p>
-        <p className="font-[family-name:var(--font-libre)] text-base text-gray-600 mb-8 max-w-lg">
+        <p className="font-[family-name:var(--font-libre)] text-base text-gray-600 mb-6 max-w-lg">
           Open to conversations about AI product roles, agent infrastructure, and anything
           at the frontier of LLMs in practice.
         </p>
