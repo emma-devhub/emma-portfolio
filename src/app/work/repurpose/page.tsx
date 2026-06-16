@@ -1,5 +1,13 @@
 import Link from "next/link";
 
+const pipelineSteps = [
+  { label: "Long-form\nContent", sub: "YouTube / Substack URL" },
+  { label: "Extraction", sub: "transcript or scrape" },
+  { label: "Platform\nVariants", sub: "Claude generates per-account drafts" },
+  { label: "Image\nGeneration", sub: "visuals for image-first platforms" },
+  { label: "Publishing", sub: "APIs + browser automation" },
+];
+
 export default function RepurposePage() {
   return (
     <div className="pt-24">
@@ -24,8 +32,9 @@ export default function RepurposePage() {
           <h1 className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl text-[#1a1a2e] mb-4">
             Repurpose
           </h1>
-          <p className="font-[family-name:var(--font-libre)] text-xl text-gray-500">
-            AI GTM automation: long-form content to multi-channel distribution
+          <p className="font-[family-name:var(--font-libre)] text-xl text-gray-500 leading-relaxed">
+            AI content redistribution: from long-form to platform-native, with per-account
+            persona config across every channel.
           </p>
         </div>
 
@@ -37,7 +46,7 @@ export default function RepurposePage() {
           </div>
           <div>
             <p className="font-[family-name:var(--font-libre)] text-xs text-gray-400 uppercase tracking-widest mb-1">Stack</p>
-            <p className="font-[family-name:var(--font-libre)] text-sm text-[#1a1a2e]">Claude, X API, LinkedIn API, Playwright</p>
+            <p className="font-[family-name:var(--font-libre)] text-sm text-[#1a1a2e]">Claude, X API, LinkedIn API, browser automation</p>
           </div>
           <div>
             <p className="font-[family-name:var(--font-libre)] text-xs text-gray-400 uppercase tracking-widest mb-1">Type</p>
@@ -49,38 +58,48 @@ export default function RepurposePage() {
         <section className="mb-12">
           <h2 className="font-[family-name:var(--font-playfair)] text-2xl text-[#1a1a2e] mb-4">The Problem</h2>
           <p className="font-[family-name:var(--font-libre)] text-base text-gray-600 leading-relaxed mb-4">
-            Long-form expert content, a podcast, a Substack post, a YouTube video, is hard to distribute
-            repeatedly across channels. Manually cutting platform-native posts from a 60-minute episode
-            is time-consuming and most people do it once or not at all.
+            Long-form expert content, a podcast, a Substack post, a YouTube video, is hard to
+            distribute repeatedly across channels. Manually cutting platform-native posts from
+            a 60-minute episode is time-consuming and most people do it once or not at all.
           </p>
           <p className="font-[family-name:var(--font-libre)] text-base text-gray-600 leading-relaxed">
-            The deeper problem: each platform has different format constraints, different audience expectations,
-            and different tonal norms. A post that works on LinkedIn reads wrong on X and does not
-            translate at all to 小红书. And when you are managing multiple accounts, each with its own
-            persona and audience, the combinatorics become unworkable manually.
+            Each platform has different format constraints, audience expectations, and tonal norms.
+            A post that works on LinkedIn reads wrong on X and does not translate at all to
+            Xiaohongshu. When you are managing multiple accounts, each with its own persona and
+            audience, the combinatorics become unworkable manually.
           </p>
         </section>
 
-        {/* What I Built */}
+        {/* Pipeline diagram */}
         <section className="mb-12">
-          <h2 className="font-[family-name:var(--font-playfair)] text-2xl text-[#1a1a2e] mb-4">What I Built</h2>
-          <p className="font-[family-name:var(--font-libre)] text-base text-gray-600 leading-relaxed mb-4">
-            A CLI that ingests a YouTube video or Substack post URL, extracts or transcribes the content,
-            and generates platform-native posts for X, LinkedIn, and multiple 小红书 accounts. Each account
-            gets a persona-tailored variant: different voice, different angle, different framing for the
-            same underlying content.
-          </p>
-          <p className="font-[family-name:var(--font-libre)] text-base text-gray-600 leading-relaxed">
-            Where official APIs exist (X, LinkedIn), the tool uses them for publishing. Where they do not
-            (小红书), it uses Playwright-driven browser automation. Images are generated per post where
-            the platform expects them. The whole pipeline runs end to end from a single command.
-          </p>
+          <h2 className="font-[family-name:var(--font-playfair)] text-2xl text-[#1a1a2e] mb-6">Distribution Pipeline</h2>
+          <div className="bg-gray-50 rounded-xl p-6">
+            <div className="flex flex-wrap gap-2 items-start">
+              {pipelineSteps.map((step, i) => (
+                <div key={step.label} className="flex items-start gap-2">
+                  <div className="border border-emerald-200 bg-white rounded-lg px-3 py-2.5 min-w-[90px]">
+                    <p className="font-[family-name:var(--font-libre)] text-xs font-semibold text-[#1a1a2e] whitespace-pre-line leading-tight mb-1">
+                      {step.label}
+                    </p>
+                    <p className="font-[family-name:var(--font-libre)] text-[10px] text-gray-400 leading-tight">
+                      {step.sub}
+                    </p>
+                  </div>
+                  {i < pipelineSteps.length - 1 && (
+                    <svg className="w-4 h-4 text-emerald-200 mt-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
 
-        {/* Technical detail */}
+        {/* How it works */}
         <section className="mb-12">
           <h2 className="font-[family-name:var(--font-playfair)] text-2xl text-[#1a1a2e] mb-6">How It Works</h2>
-          <div className="space-y-4">
+          <div className="space-y-5">
             {[
               {
                 step: "01",
@@ -92,19 +111,19 @@ export default function RepurposePage() {
                 step: "02",
                 title: "Generate",
                 detail:
-                  "Claude generates platform-native variants for each target account. Each account has a persona config: voice, preferred topics, tone, and format constraints.",
+                  "Claude generates platform-native variants for each target account. Each account has a persona config: voice, preferred topics, tone, and format constraints for the platform.",
               },
               {
                 step: "03",
                 title: "Image generation",
                 detail:
-                  "For platforms that expect images (小红书 in particular), Claude generates relevant visuals based on post content.",
+                  "For image-first platforms like Xiaohongshu, generates relevant visuals based on post content so each draft is ready to publish as-is.",
               },
               {
                 step: "04",
                 title: "Publish",
                 detail:
-                  "X and LinkedIn: official write APIs. 小红书: Playwright-driven browser automation, running headless against each account in sequence.",
+                  "X and LinkedIn use official write APIs. Platforms without mature publishing APIs use browser automation to complete the workflow.",
               },
             ].map((s) => (
               <div key={s.step} className="flex gap-5">
@@ -124,27 +143,26 @@ export default function RepurposePage() {
           </div>
         </section>
 
-        {/* What this demonstrates */}
+        {/* Why I built it */}
         <section className="mb-16 bg-gray-50 rounded-xl p-7">
           <h2 className="font-[family-name:var(--font-playfair)] text-lg text-[#1a1a2e] mb-3">
             Why I built this
           </h2>
           <p className="font-[family-name:var(--font-libre)] text-sm text-gray-600 leading-relaxed mb-3">
-            Valence needed real-world content as supply for the marketplace and as signal for what
-            agents could do. I built Repurpose to solve that problem operationally, and to prove
-            out the agent workflow patterns I was designing into Valence.
+            Valence needed real-world content as supply for the marketplace and as signal for
+            what agents could do. I built Repurpose to solve that problem operationally, and
+            to prove out the agent workflow patterns I was designing into Valence.
           </p>
           <p className="font-[family-name:var(--font-libre)] text-sm text-gray-600 leading-relaxed">
-            The per-account persona config was the most interesting design decision. Rather than one
-            voice applied across all accounts, each account has a config that captures its distinct
-            angle on the same content. That required thinking carefully about what makes a voice
-            consistent and what makes the same voice sound different on different platforms.
+            The per-account persona config was the most interesting design decision. Rather than
+            one voice applied across all accounts, each account has a config that captures its
+            distinct angle on the same content. That required thinking carefully about what makes
+            a voice consistent and what makes the same voice read differently across platforms.
           </p>
         </section>
 
         {/* Links */}
         <section className="mb-16">
-          <h2 className="font-[family-name:var(--font-playfair)] text-lg text-[#1a1a2e] mb-4">Code</h2>
           <a
             href="https://github.com/Kuzphi/MarketingAgent"
             target="_blank"
