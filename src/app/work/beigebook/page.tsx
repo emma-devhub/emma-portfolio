@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const pipelineSteps = [
   { label: "526 Beige\nBooks", sub: "1983–2024, 8× per year" },
@@ -52,6 +53,20 @@ export default function BeigeBookPage() {
             <p className="font-[family-name:var(--font-libre)] text-xs text-gray-400 uppercase tracking-widest mb-1">Peak F1</p>
             <p className="font-[family-name:var(--font-libre)] text-sm text-[#1a1a2e]">0.89 (recession nowcasting)</p>
           </div>
+        </div>
+
+        {/* Research chart */}
+        <div className="mb-14 rounded-xl overflow-hidden border border-gray-100 shadow-sm bg-[#FAFAF8]">
+          <Image
+            src="/projects/beigebook.png"
+            alt="LLM sentiment signal from Beige Book text vs. NBER recession dates, 1983–2024"
+            width={1482}
+            height={809}
+            className="w-full h-auto"
+          />
+          <p className="font-[family-name:var(--font-libre)] text-xs text-gray-400 text-center py-2 bg-gray-50">
+            LLM sentiment signal vs. NBER recessions — illustrative of pipeline output
+          </p>
         </div>
 
         {/* Problem */}

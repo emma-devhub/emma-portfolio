@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const pipelineSteps = [
   { label: "Long-form\nContent", sub: "YouTube / Substack URL" },
@@ -52,6 +53,20 @@ export default function RepurposePage() {
             <p className="font-[family-name:var(--font-libre)] text-xs text-gray-400 uppercase tracking-widest mb-1">Type</p>
             <p className="font-[family-name:var(--font-libre)] text-sm text-[#1a1a2e]">Production CLI tool</p>
           </div>
+        </div>
+
+        {/* Repo screenshot */}
+        <div className="mb-14 rounded-xl overflow-hidden border border-gray-100 shadow-sm">
+          <Image
+            src="/projects/repurpose.png"
+            alt="emma-devhub/emma-portfolio on GitHub — public repo showing commit history"
+            width={1400}
+            height={700}
+            className="w-full h-auto"
+          />
+          <p className="font-[family-name:var(--font-libre)] text-xs text-gray-400 text-center py-2 bg-gray-50">
+            github.com/emma-devhub — shipped and public
+          </p>
         </div>
 
         {/* Problem */}

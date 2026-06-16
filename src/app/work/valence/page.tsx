@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const loopSteps = [
   { label: "Expert\nTeaching", sub: "explain your method in chat" },
@@ -59,6 +60,20 @@ export default function ValencePage() {
               getvalence.io
             </a>
           </div>
+        </div>
+
+        {/* Product screenshot */}
+        <div className="mb-14 rounded-xl overflow-hidden border border-gray-100 shadow-sm">
+          <Image
+            src="/projects/valence.png"
+            alt="Valence agent marketplace — Browse agents built by domain experts"
+            width={1400}
+            height={820}
+            className="w-full h-auto"
+          />
+          <p className="font-[family-name:var(--font-libre)] text-xs text-gray-400 text-center py-2 bg-gray-50">
+            getvalence.io — agent marketplace
+          </p>
         </div>
 
         {/* Problem */}

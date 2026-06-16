@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const pipelineSteps = [
   { label: "Case\nSpecification", sub: "patient record + scenario" },
@@ -60,6 +61,20 @@ export default function ChatGeneTPage() {
               getchatgenet.com
             </a>
           </div>
+        </div>
+
+        {/* Product screenshot */}
+        <div className="mb-14 rounded-xl overflow-hidden border border-gray-100 shadow-sm bg-gray-50">
+          <Image
+            src="/projects/chatgenet.png"
+            alt="ChatGeneT patient simulation interface — multi-turn dialogue between clinician and AI patient"
+            width={580}
+            height={480}
+            className="w-full h-auto"
+          />
+          <p className="font-[family-name:var(--font-libre)] text-xs text-gray-400 text-center py-2">
+            Live simulation session — Simulated Patient · Case #2471
+          </p>
         </div>
 
         {/* Problem */}
