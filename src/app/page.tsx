@@ -78,9 +78,9 @@ export default function Home() {
         </h1>
         <div className="flex flex-wrap gap-2 mt-2">
           {[
-            "Co-founder @ Valence · ChatGeneT",
-            "30+ hospitals · 500+ clinicians",
-            "Healthcare, finance & expert workflows",
+            "$1M angel-backed · Co-founded Valence & ChatGeneT",
+            "30+ hospitals · 500+ clinicians · 4.5/5 CSAT",
+            "MS CS @ Georgia Tech · ACM ICAIF oral",
           ].map((chip) => (
             <span
               key={chip}
