@@ -94,14 +94,11 @@ export default function Home() {
 
       {/* Product gallery */}
       <section className="max-w-5xl mx-auto px-6 pb-24">
-        <div className="grid md:grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-2 gap-x-8 gap-y-14">
           {cases.map((c) => (
-            <div
-              key={c.title}
-              className="group rounded-2xl overflow-hidden border border-gray-100 hover:border-gray-300 hover:shadow-md transition-all duration-200 flex flex-col"
-            >
-              {/* Screenshot */}
-              <Link href={c.href} className={`block relative overflow-hidden ${c.imageBg}`} style={{ aspectRatio: "16/10" }}>
+            <div key={c.title} className="group">
+              {/* Image */}
+              <Link href={c.href} className={`block relative overflow-hidden rounded-xl ${c.imageBg}`} style={{ aspectRatio: "4/3" }}>
                 <Image
                   src={c.image}
                   alt={c.imageAlt}
@@ -110,37 +107,17 @@ export default function Home() {
                 />
               </Link>
 
-              {/* Card body */}
-              <div className="p-5 flex flex-col gap-3 flex-1">
-                <div className="flex items-start justify-between">
-                  <div>
-                    <span className={`font-[family-name:var(--font-libre)] text-xs font-medium px-2 py-0.5 rounded-full ${c.tagColor}`}>
-                      {c.tag}
-                    </span>
-                    <h2 className="font-[family-name:var(--font-playfair)] text-xl text-[#1a1a2e] mt-1.5">
-                      {c.title}
-                    </h2>
-                  </div>
+              {/* Caption */}
+              <div className="mt-4 flex items-start justify-between gap-4">
+                <div>
+                  <h2 className="font-[family-name:var(--font-playfair)] text-lg text-[#1a1a2e]">
+                    {c.title}
+                  </h2>
+                  <p className="font-[family-name:var(--font-libre)] text-sm text-gray-400 mt-0.5">
+                    {c.description}
+                  </p>
                 </div>
-
-                <p className="font-[family-name:var(--font-libre)] text-sm text-gray-500">
-                  {c.description}
-                </p>
-
-                {/* Metrics */}
-                <div className="flex flex-wrap gap-1.5">
-                  {c.metrics.map((m) => (
-                    <span
-                      key={m}
-                      className="font-[family-name:var(--font-libre)] text-xs text-gray-500 bg-gray-50 border border-gray-100 px-2.5 py-1 rounded-full"
-                    >
-                      {m}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Links */}
-                <div className="flex gap-4 pt-1 mt-auto">
+                <div className="flex gap-3 flex-shrink-0 pt-0.5">
                   {c.links.map((l) =>
                     l.external ? (
                       <a
@@ -148,7 +125,7 @@ export default function Home() {
                         href={l.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-[family-name:var(--font-libre)] text-xs font-medium text-blue-600 hover:underline"
+                        className="font-[family-name:var(--font-libre)] text-xs text-gray-400 hover:text-[#1a1a2e] transition-colors"
                       >
                         {l.label} ↗
                       </a>
@@ -156,7 +133,7 @@ export default function Home() {
                       <Link
                         key={l.label}
                         href={l.url}
-                        className="font-[family-name:var(--font-libre)] text-xs font-medium text-gray-500 hover:text-[#1a1a2e] transition-colors"
+                        className="font-[family-name:var(--font-libre)] text-xs text-gray-400 hover:text-[#1a1a2e] transition-colors"
                       >
                         {l.label} →
                       </Link>
