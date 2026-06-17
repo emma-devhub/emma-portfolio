@@ -42,9 +42,9 @@ const cases = [
     title: "Repurpose",
     description: "AI content redistribution pipeline",
     image: "/projects/repurpose.png",
-    imageAlt: "Repurpose — GitHub repo",
-    imageBg: "bg-gray-50",
-    metrics: ["Claude generation", "X + LinkedIn APIs", "Per-account personas"],
+    imageAlt: "Repurpose content redistribution pipeline diagram",
+    imageBg: "bg-[#0f1117]",
+    metrics: ["Multi-platform drafting", "Distribution workflow", "Audience-aware personas"],
     links: [
       { label: "GitHub", url: "https://github.com/emma-devhub", external: true },
       { label: "Case study", url: "/work/repurpose", external: false },
@@ -200,9 +200,22 @@ export default function Home() {
           Get in Touch
         </p>
         <p className="font-[family-name:var(--font-libre)] text-base text-gray-600 mb-6 max-w-lg">
-          Open to conversations about AI product roles, agent infrastructure, and anything
-          at the frontier of LLMs in practice.
+          Open to AI product, founder-in-residence, and product-engineering roles
+          building LLM systems for complex workflows.
         </p>
+        <div className="flex flex-wrap gap-4 items-center mb-5">
+          <a
+            href="/emma-sun-resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-[family-name:var(--font-libre)] text-sm font-medium bg-[#1a1a2e] text-white px-5 py-2.5 rounded-full hover:bg-[#2d2d4e] transition-colors flex items-center gap-2"
+          >
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Resume
+          </a>
+        </div>
         <div className="flex flex-wrap gap-5 items-center">
           <a
             href="mailto:emmayisun@gmail.com"
