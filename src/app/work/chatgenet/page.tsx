@@ -68,8 +68,8 @@ export default function ChatGeneTPage() {
           <Image
             src="/projects/chatgenet.png"
             alt="ChatGeneT patient simulation interface — multi-turn dialogue between clinician and AI patient"
-            width={580}
-            height={480}
+            width={720}
+            height={784}
             className="w-full h-auto"
           />
           <p className="font-[family-name:var(--font-libre)] text-xs text-gray-400 text-center py-2">

@@ -11,7 +11,7 @@ const cases = [
     description: "AI patient simulator for clinical training",
     image: "/projects/chatgenet.png",
     imageAlt: "ChatGeneT patient simulation interface",
-    imageBg: "bg-gray-900",
+    imageBg: "bg-white",
     metrics: ["30+ hospitals", "500+ clinicians", "0.31% hallucination rate"],
     links: [
       { label: "Live site", url: "https://www.getchatgenet.com", external: true },
@@ -106,7 +106,7 @@ export default function Home() {
                   src={c.image}
                   alt={c.imageAlt}
                   fill
-                  className="object-cover object-top group-hover:scale-[1.02] transition-transform duration-300"
+                  className={`object-cover ${c.imagePos ?? "object-top"} group-hover:scale-[1.02] transition-transform duration-300`}
                 />
               </Link>
 
