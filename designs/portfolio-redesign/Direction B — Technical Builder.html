@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Emma Sun — Direction B · Technical Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#f6f6f4;
+    --panel:#ffffff;
+    --line:#e2e2dc;
+    --line-strong:#cfcfc7;
+    --ink:#16170f;
+    --ink-2:#55564c;
+    --ink-3:#8a8b80;
+    --signal:#1f5eff;       /* electric blue */
+    --signal-soft:#e8efff;
+    --ok:#0a7d4d;
+    --disp:"Space Grotesk", system-ui, sans-serif;
+    --mono:"JetBrains Mono", ui-monospace, monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);font-family:var(--disp);
+    font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  .mono{font-family:var(--mono);}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px;}
+  /* vertical grid frame */
+  .frame{border-left:1px solid var(--line);border-right:1px solid var(--line);}
+
+  header{position:sticky;top:0;z-index:60;background:rgba(246,246,244,.9);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
+  nav{display:flex;align-items:center;justify-content:space-between;height:56px;}
+  .brand{font-family:var(--mono);font-weight:700;font-size:14px;letter-spacing:-.01em;display:flex;align-items:center;gap:8px;}
+  .dot{width:8px;height:8px;background:var(--signal);border-radius:50%;box-shadow:0 0 0 3px var(--signal-soft);}
+  .navlinks{display:flex;gap:4px;}
+  .navlinks a{font-family:var(--mono);font-size:12px;color:var(--ink-2);padding:6px 11px;border-radius:5px;transition:.18s;}
+  .navlinks a:hover{background:var(--signal-soft);color:var(--signal);}
+  .navlinks a::before{content:"/";color:var(--ink-3);margin-right:3px;}
+
+  /* hero */
+  .hero{padding:64px 0 14px;}
+  .kicker{font-family:var(--mono);font-size:12px;color:var(--signal);letter-spacing:.02em;margin-bottom:22px;display:flex;align-items:center;gap:10px;}
+  .kicker .blink{width:7px;height:14px;background:var(--signal);animation:blink 1.1s steps(1) infinite;}
+  @keyframes blink{50%{opacity:0;}}
+  h1{font-family:var(--disp);font-weight:600;font-size:clamp(34px,5.6vw,62px);line-height:1.05;letter-spacing:-.025em;margin:0 0 24px;max-width:18ch;}
+  h1 .hl{color:var(--signal);}
+  .lede{font-size:18px;color:var(--ink-2);max-width:60ch;line-height:1.6;margin:0 0 8px;}
+  .lede code{font-family:var(--mono);font-size:14px;background:var(--signal-soft);color:var(--signal);padding:1px 6px;border-radius:4px;}
+
+  /* stat bar */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:46px;}
+  .stat{padding:22px 24px;border-right:1px solid var(--line);}
+  .stat:last-child{border-right:none;}
+  .stat .v{font-family:var(--disp);font-weight:600;font-size:26px;letter-spacing:-.02em;}
+  .stat .k{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-top:4px;}
+
+  /* section */
+  section{padding:0;}
+  .sechead{display:flex;align-items:center;gap:14px;padding:46px 0 22px;}
+  .sechead .tag{font-family:var(--mono);font-size:12px;color:var(--ink-3);}
+  .sechead h2{font-family:var(--disp);font-weight:600;font-size:15px;letter-spacing:.02em;margin:0;text-transform:uppercase;}
+  .sechead .rule{flex:1;height:1px;background:var(--line);}
+
+  /* project grid – spec sheets */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);background:var(--line);}
+  .card{background:var(--panel);padding:0;display:flex;flex-direction:column;transition:.2s;position:relative;}
+  .card:hover{background:#fcfcfb;}
+  .card .top{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--line);}
+  .card .id{font-family:var(--mono);font-size:11px;color:var(--ink-3);}
+  .card .status{font-family:var(--mono);font-size:10.5px;padding:3px 8px;border-radius:20px;letter-spacing:.04em;}
+  .st-live{background:#e7f6ee;color:var(--ok);}
+  .st-build{background:var(--signal-soft);color:var(--signal);}
+  .st-pub{background:#fbf0e4;color:#a35a16;}
+  .card .shot{aspect-ratio:16/9;overflow:hidden;background:#101218;border-bottom:1px solid var(--line);}
+  .card .shot img{width:100%;height:100%;object-fit:cover;object-position:top;}
+  .card .body{padding:20px 20px 22px;flex:1;display:flex;flex-direction:column;}
+  .card h3{font-family:var(--disp);font-weight:600;font-size:22px;letter-spacing:-.01em;margin:0 0 4px;}
+  .card .sub{font-family:var(--mono);font-size:11.5px;color:var(--signal);margin-bottom:12px;}
+  .card p{font-size:14px;color:var(--ink-2);margin:0 0 16px;line-height:1.55;}
+  .kv{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-family:var(--mono);font-size:12px;margin-top:auto;border-top:1px dashed var(--line);padding-top:14px;}
+  .kv dt{color:var(--ink-3);}
+  .kv dd{margin:0;color:var(--ink);font-weight:500;}
+  .kv dd b{color:var(--signal);}
+  .card .links{display:flex;gap:16px;margin-top:16px;}
+  .card .links a{font-family:var(--mono);font-size:12px;color:var(--ink);border-bottom:1px solid var(--line-strong);padding-bottom:2px;transition:.18s;}
+  .card .links a:hover{color:var(--signal);border-color:var(--signal);}
+
+  /* experience as log */
+  .log{border:1px solid var(--line);background:var(--panel);font-family:var(--mono);}
+  .logrow{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:18px 22px;border-bottom:1px solid var(--line);align-items:start;}
+  .logrow:last-child{border-bottom:none;}
+  .logrow .when{font-size:12px;color:var(--ink-3);}
+  .logrow .co{font-family:var(--disp);font-weight:600;font-size:18px;letter-spacing:-.01em;margin:0 0 2px;}
+  .logrow .role{font-size:12px;color:var(--ink-2);margin-bottom:10px;}
+  .logrow .out{font-family:var(--mono);font-size:13px;color:var(--ink-2);margin:3px 0;}
+  .logrow .out .arr{color:var(--signal);}
+  .logrow .out b{color:var(--ink);}
+
+  /* writing */
+  .wr{display:flex;gap:18px;align-items:center;padding:18px 22px;border:1px solid var(--line);background:var(--panel);transition:.18s;}
+  .wr:hover{border-color:var(--signal);}
+  .wr .src{font-family:var(--mono);font-size:11px;color:var(--ink-3);}
+  .wr h4{font-family:var(--disp);font-weight:500;font-size:18px;margin:0;flex:1;letter-spacing:-.01em;}
+  .wr:hover h4{color:var(--signal);}
+
+  /* contact */
+  .contact{border:1px solid var(--line);background:var(--panel);padding:44px 40px;margin:46px 0 56px;}
+  .contact h2{font-family:var(--disp);font-weight:600;font-size:clamp(26px,4vw,40px);letter-spacing:-.02em;margin:0 0 12px;}
+  .contact h2 .hl{color:var(--signal);}
+  .contact p{font-family:var(--mono);font-size:13px;color:var(--ink-2);margin:0 0 26px;}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;}
+  .btn{font-family:var(--mono);font-size:13px;padding:12px 20px;border-radius:6px;transition:.18s;}
+  .btn.solid{background:var(--signal);color:#fff;}
+  .btn.solid:hover{background:#1a4fdb;}
+  .btn.ghost{border:1px solid var(--line-strong);color:var(--ink);}
+  .btn.ghost:hover{border-color:var(--signal);color:var(--signal);}
+
+  footer{border-top:1px solid var(--line);}
+  .foot{display:flex;justify-content:space-between;padding:22px 0;font-family:var(--mono);font-size:11px;color:var(--ink-3);}
+
+  @media(max-width:820px){
+    .stats{grid-template-columns:1fr 1fr;} .grid{grid-template-columns:1fr;}
+    .stat:nth-child(2){border-right:none;} .logrow{grid-template-columns:1fr;gap:8px;}
+    .navlinks{display:none;}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap"><nav>
+    <a class="brand" href="#top"><span class="dot"></span>emma_sun</a>
+    <div class="navlinks">
+      <a href="#work">work</a><a href="#experience">experience</a><a href="#writing">writing</a><a href="#contact">contact</a>
+    </div>
+  </nav></div>
+</header>
+
+<main id="top" class="wrap frame">
+  <section class="hero">
+    <div class="kicker"><span class="blink"></span>AI-native PM · builds 0→1</div>
+    <h1>Product manager who <span class="hl">ships the build</span>, not just the spec.</h1>
+    <p class="lede">I work an arm's length from the model: dialogue taxonomies, eval frameworks, release gates — and the front-end and live agents on top. Co-founded two AI products, hand-built the third in <code>Claude API</code> + browser automation.</p>
+  </section>
+
+  <div class="stats">
+    <div class="stat"><div class="v">$1M</div><div class="k">angel-backed · 2 cos co-founded</div></div>
+    <div class="stat"><div class="v">30+</div><div class="k">hospitals · 500+ clinicians</div></div>
+    <div class="stat"><div class="v">0.31%</div><div class="k">hallucination rate · ChatGeneT</div></div>
+    <div class="stat"><div class="v">0.89</div><div class="k">peak F1 · ACM ICAIF '25 oral</div></div>
+  </div>
+
+  <section id="work">
+    <div class="sechead"><span class="tag">01</span><h2>Selected Work</h2><span class="rule"></span><span class="tag">4 projects</span></div>
+    <div class="grid">
+
+      <article class="card">
+        <div class="top"><span class="id">proj/chatgenet</span><span class="status st-live">● LIVE</span></div>
+        <div class="shot"><img src="assets/chatgenet.png" alt="ChatGeneT" /></div>
+        <div class="body">
+          <h3>ChatGeneT</h3>
+          <div class="sub">AI patient simulator · clinical training</div>
+          <p>Multi-turn dialogue that simulates realistic patient encounters, generates structured feedback, and enforces factual consistency across sessions.</p>
+          <dl class="kv">
+            <dt>role</dt><dd>Product · Eval · QA</dd>
+            <dt>scale</dt><dd>30+ hospitals · 500+ clinicians</dd>
+            <dt>quality</dt><dd><b>0.31%</b> hallucination · 4.5/5 CSAT</dd>
+          </dl>
+          <div class="links"><a href="https://www.getchatgenet.com" target="_blank">live ↗</a><a href="#">case study →</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="top"><span class="id">proj/valence</span><span class="status st-live">● LIVE</span></div>
+        <div class="shot"><img src="assets/valence.png" alt="Valence" /></div>
+        <div class="body">
+          <h3>Valence</h3>
+          <div class="sub">Expert-agent marketplace · founding COO</div>
+          <p>Experts teach, test, and publish AI agents that encode their judgment. Built the teach-test-publish loop and owned front-end design end to end.</p>
+          <dl class="kv">
+            <dt>role</dt><dd>Founding Product (COO)</dd>
+            <dt>built</dt><dd><b>10+</b> agents hand-built · 45–70 curated</dd>
+            <dt>scope</dt><dd>product · design · front-end · supply</dd>
+          </dl>
+          <div class="links"><a href="https://getvalence.io" target="_blank">live ↗</a><a href="#">case study →</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="top"><span class="id">proj/repurpose</span><span class="status st-build">▲ CLI</span></div>
+        <div class="shot"><img src="assets/repurpose.png" alt="Repurpose" /></div>
+        <div class="body">
+          <h3>Repurpose</h3>
+          <div class="sub">AI content redistribution pipeline</div>
+          <p>Ingests long-form content, generates platform-native drafts with audience-aware style configs across channels. Built end to end as a production CLI.</p>
+          <dl class="kv">
+            <dt>role</dt><dd>Sole builder</dd>
+            <dt>stack</dt><dd>Claude API · X · LinkedIn · browser</dd>
+            <dt>output</dt><dd>multi-platform · persona-aware</dd>
+          </dl>
+          <div class="links"><a href="https://github.com/emma-devhub" target="_blank">github ↗</a><a href="#">case study →</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="top"><span class="id">proj/beigebook</span><span class="status st-pub">◆ PUBLISHED</span></div>
+        <div class="shot"><img src="assets/beigebook.png" alt="Beige Book" /></div>
+        <div class="body">
+          <h3>Decoding the Beige Book</h3>
+          <div class="sub">text-to-signal LLM pipeline · ACM ICAIF '25</div>
+          <p>Transforms Fed Beige Book narratives into structured recession-risk signals. 526 docs, 56K+ topic entries, multi-model voting.</p>
+          <dl class="kv">
+            <dt>role</dt><dd>Pipeline · taxonomy · ground truth</dd>
+            <dt>data</dt><dd>526 docs · 56K+ entries</dd>
+            <dt>result</dt><dd><b>F1 0.89</b> · oral presentation</dd>
+          </dl>
+          <div class="links"><a href="#">case study →</a></div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sechead"><span class="tag">02</span><h2>Experience</h2><span class="rule"></span><span class="tag">product · ai · finance</span></div>
+    <div class="log">
+      <div class="logrow">
+        <div class="when">2023 — 2024<br/>Series D</div>
+        <div>
+          <p class="co">Commure</p>
+          <div class="role">PM, AI-Powered Enterprise Platforms</div>
+          <p class="out"><span class="arr">→</span> AI-to-billing on fine-tuned LLMs · <b>+20% revenue</b>, –25% denials, 150+ orgs</p>
+          <p class="out"><span class="arr">→</span> ML customer-health scoring · <b>–50% churn</b>, +$2M recovered</p>
+        </div>
+      </div>
+      <div class="logrow">
+        <div class="when">2021 — 2023<br/>Research Portal</div>
+        <div>
+          <p class="co">JPMorgan</p>
+          <div class="role">PM &amp; AI Strategy</div>
+          <p class="out"><span class="arr">→</span> Audio-to-signal AI pipeline · <b>+$5M revenue</b>, +30% fine-tune precision</p>
+          <p class="out"><span class="arr">→</span> Trade-rec engine ground truth · <b>+45% profit</b>, +30% volume</p>
+        </div>
+      </div>
+      <div class="logrow">
+        <div class="when">2019 — 2021<br/>Trading</div>
+        <div>
+          <p class="co">Société Générale</p>
+          <div class="role">PM, Trading Platform &amp; Algorithms</div>
+          <p class="out"><span class="arr">→</span> Single-dealer platform growth · <b>+300% active users</b>, +170% flow</p>
+          <p class="out"><span class="arr">→</span> ECN/API integration expansion · <b>+30% sales</b></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="writing">
+    <div class="sechead"><span class="tag">03</span><h2>Writing</h2><span class="rule"></span><span class="tag">medium</span></div>
+    <a class="wr" href="https://medium.com/@emmayisun/the-agentic-future-is-here-what-i-predicted-in-2024-and-what-actually-happened-d923e1b54af1" target="_blank">
+      <span class="src">2025 ·</span>
+      <h4>The Agentic Future Is Here: What I Predicted in 2024, and What Actually Happened</h4>
+      <span class="src">↗</span>
+    </a>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Open to <span class="hl">AI product</span> &amp; founder-in-residence roles.</h2>
+    <p>// building LLM systems for complex, high-stakes workflows</p>
+    <div class="cta">
+      <a class="btn solid" href="/emma-sun-resume.pdf" target="_blank">$ download résumé</a>
+      <a class="btn ghost" href="mailto:emmayisun@gmail.com">emmayisun@gmail.com</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/emmayisun" target="_blank">linkedin</a>
+      <a class="btn ghost" href="https://github.com/emma-devhub" target="_blank">github</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot"><span>© 2026 emma_sun</span><span>Technical Builder — Direction B</span></div>
+</footer>
+</body>
+</html>

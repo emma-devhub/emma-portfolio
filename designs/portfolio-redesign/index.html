@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Emma Sun — Portfolio Redesign · 3 Directions</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;background:#e9e9e6;color:#1a1a1f;font-family:"Sora",system-ui,sans-serif;padding:48px 32px 80px;}
+  .mono{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#8a8a82;}
+  .head{max-width:1200px;margin:0 auto 40px;}
+  h1{font-weight:700;font-size:34px;letter-spacing:-.02em;margin:10px 0 8px;}
+  .head p{color:#56564e;max-width:64ch;margin:0;font-size:15px;line-height:1.6;}
+  .grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .card{background:#fff;border:1px solid #d6d6cf;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:.2s;}
+  .card:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,.1);}
+  .frame{aspect-ratio:4/3;border-bottom:1px solid #d6d6cf;overflow:hidden;background:#000;}
+  .frame iframe{width:250%;height:250%;transform:scale(.4);transform-origin:top left;border:0;pointer-events:none;}
+  .meta{padding:20px 22px 22px;}
+  .meta .lab{color:#9a9a90;}
+  .meta h2{font-weight:600;font-size:20px;margin:8px 0 6px;letter-spacing:-.01em;}
+  .meta p{color:#56564e;font-size:13.5px;line-height:1.55;margin:0 0 16px;}
+  .meta a{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:12px;color:#1a1a1f;border:1px solid #1a1a1f;border-radius:7px;padding:9px 16px;transition:.2s;}
+  .meta a:hover{background:#1a1a1f;color:#fff;}
+  @media(max-width:900px){.grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="head">
+    <div class="mono">Emma Sun · Portfolio Redesign</div>
+    <h1>Three visual directions</h1>
+    <p>Same real content, three aesthetics. Open each full-screen to scroll the whole homepage. Pick one to build — or mix elements across them.</p>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="frame"><iframe src="Direction A — Editorial Refined.html" scrolling="no"></iframe></div>
+      <div class="meta">
+        <div class="lab mono">Direction A</div>
+        <h2>Editorial Refined</h2>
+        <p>Elevated serif/magazine DNA — warm paper, Newsreader display, oxblood accent, numbered project index. Tasteful, recruiter-friendly.</p>
+        <a href="Direction A — Editorial Refined.html" target="_blank">Open full ↗</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="frame"><iframe src="Direction B — Technical Builder.html" scrolling="no"></iframe></div>
+      <div class="meta">
+        <div class="lab mono">Direction B</div>
+        <h2>Technical Builder</h2>
+        <p>Engineer's portfolio — near-monochrome, mono type, grid frame, spec-sheet project cards, status chips. Proves the eng-mindset.</p>
+        <a href="Direction B — Technical Builder.html" target="_blank">Open full ↗</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="frame"><iframe src="Direction C — Bold Modern.html" scrolling="no"></iframe></div>
+      <div class="meta">
+        <div class="lab mono">Direction C</div>
+        <h2>Bold Modern</h2>
+        <p>Dark, high-contrast, oversized type, electric-lime accent, staggered load animation, big alternating project imagery. Memorable.</p>
+        <a href="Direction C — Bold Modern.html" target="_blank">Open full ↗</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

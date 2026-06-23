@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Emma Sun — B×C · Technical Builder, big-image</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#f6f6f4;
+    --panel:#ffffff;
+    --line:#e2e2dc;
+    --line-strong:#cdcdc4;
+    --ink:#14150e;
+    --ink-2:#54554b;
+    --ink-3:#8a8b80;
+    --signal:#1f5eff;
+    --signal-soft:#e8efff;
+    --ok:#0a7d4d;
+    --disp:"Space Grotesk", system-ui, sans-serif;
+    --mono:"JetBrains Mono", ui-monospace, monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--disp);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 40px;}
+  .mono{font-family:var(--mono);}
+
+  /* entrance */
+  @keyframes rise{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:none;}}
+  .rise{opacity:0;animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards;}
+  .d1{animation-delay:.04s;}.d2{animation-delay:.14s;}.d3{animation-delay:.24s;}.d4{animation-delay:.34s;}.d5{animation-delay:.46s;}
+
+  header{position:sticky;top:0;z-index:60;background:rgba(246,246,244,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  nav{display:flex;align-items:center;justify-content:space-between;height:60px;max-width:1200px;margin:0 auto;padding:0 40px;}
+  .brand{font-family:var(--mono);font-weight:700;font-size:15px;display:flex;align-items:center;gap:9px;}
+  .dot{width:8px;height:8px;background:var(--signal);border-radius:50%;box-shadow:0 0 0 3px var(--signal-soft);}
+  .navlinks{display:flex;gap:4px;}
+  .navlinks a{font-family:var(--mono);font-size:12px;color:var(--ink-2);padding:7px 12px;border-radius:6px;transition:.18s;}
+  .navlinks a:hover{background:var(--signal-soft);color:var(--signal);}
+  .navlinks a::before{content:"/";color:var(--ink-3);margin-right:3px;}
+
+  /* hero – C scale, B styling */
+  .hero{padding:96px 0 60px;}
+  .kicker{font-family:var(--mono);font-size:13px;color:var(--signal);margin-bottom:26px;display:flex;align-items:center;gap:11px;letter-spacing:.02em;}
+  .kicker .blink{width:8px;height:16px;background:var(--signal);animation:blink 1.1s steps(1) infinite;}
+  @keyframes blink{50%{opacity:0;}}
+  h1{font-weight:700;font-size:clamp(44px,8vw,98px);line-height:.98;letter-spacing:-.035em;margin:0 0 30px;max-width:15ch;}
+  h1 .hl{color:var(--signal);}
+  .lede{font-size:clamp(17px,1.9vw,21px);color:var(--ink-2);max-width:60ch;line-height:1.62;margin:0 0 38px;}
+  .lede b{color:var(--ink);font-weight:600;}
+  .lede code{font-family:var(--mono);font-size:.86em;background:var(--signal-soft);color:var(--signal);padding:2px 7px;border-radius:5px;}
+  .herocta{display:flex;flex-wrap:wrap;gap:13px;align-items:center;}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14.5px;padding:13px 24px;border-radius:8px;transition:.18s;font-family:var(--disp);}
+  .btn.solid{background:var(--signal);color:#fff;}
+  .btn.solid:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(31,94,255,.22);}
+  .btn.ghost{border:1px solid var(--line-strong);color:var(--ink);}
+  .btn.ghost:hover{border-color:var(--signal);color:var(--signal);}
+  .btn.mono{font-family:var(--mono);font-size:13.5px;}
+
+  /* stat strip */
+  .strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:60px;}
+  .strip .s{padding:26px 26px;border-right:1px solid var(--line);}
+  .strip .s:last-child{border-right:none;}
+  .strip .v{font-weight:700;font-size:36px;letter-spacing:-.03em;line-height:1;}
+  .strip .v .u{color:var(--signal);}
+  .strip .k{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-top:9px;}
+
+  /* sections */
+  .sec{padding:100px 0 0;}
+  .sec-top{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:46px;}
+  .sec-top h2{font-weight:700;font-size:clamp(30px,4.4vw,52px);letter-spacing:-.03em;margin:0;line-height:1;}
+  .sec-top h2 .hl{color:var(--signal);}
+  .sec-top .n{font-family:var(--mono);font-size:12px;color:var(--ink-3);}
+
+  /* projects – C big alternating, B UI */
+  .proj{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding:46px 0;border-top:1px solid var(--line);}
+  .proj:nth-child(even) .media{order:2;}
+  .media{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#0f1116;aspect-ratio:16/11;box-shadow:0 1px 0 rgba(0,0,0,.02);}
+  .media img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .55s cubic-bezier(.2,.7,.2,1);}
+  .proj:hover .media img{transform:scale(1.04);}
+  .media .corner{position:absolute;top:12px;left:12px;font-family:var(--mono);font-size:10.5px;color:#fff;background:rgba(10,12,18,.6);backdrop-filter:blur(4px);padding:4px 9px;border-radius:6px;letter-spacing:.04em;}
+  .ptag{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--signal);margin-bottom:14px;display:flex;gap:11px;align-items:center;}
+  .status{font-family:var(--mono);font-size:10.5px;padding:3px 9px;border-radius:20px;letter-spacing:.04em;}
+  .st-live{background:#e7f6ee;color:var(--ok);}
+  .st-build{background:var(--signal-soft);color:var(--signal);}
+  .st-pub{background:#fbf0e4;color:#a35a16;}
+  .proj h3{font-weight:700;font-size:clamp(28px,3.6vw,42px);letter-spacing:-.03em;margin:0 0 14px;line-height:1.02;}
+  .proj p{color:var(--ink-2);font-size:16px;line-height:1.62;margin:0 0 18px;max-width:50ch;}
+  .role{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-bottom:18px;line-height:1.5;}
+  .kv{display:grid;grid-template-columns:auto 1fr;gap:7px 16px;font-family:var(--mono);font-size:12.5px;margin:0 0 22px;border-top:1px dashed var(--line-strong);padding-top:16px;}
+  .kv dt{color:var(--ink-3);}
+  .kv dd{margin:0;color:var(--ink);font-weight:500;}
+  .kv dd b{color:var(--signal);font-weight:700;}
+  .plinks{display:flex;gap:20px;}
+  .plinks a{font-family:var(--mono);font-size:13px;color:var(--ink);border-bottom:2px solid var(--signal);padding-bottom:2px;transition:.18s;}
+  .plinks a:hover{color:var(--signal);}
+
+  /* lab / side projects – compact text cards */
+  .lab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .lab-card{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:24px 22px 20px;display:flex;flex-direction:column;transition:.18s;}
+  .lab-card:hover{border-color:var(--signal);transform:translateY(-3px);box-shadow:0 10px 26px rgba(20,21,14,.06);}
+  .lab-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:10px;}
+  .lab-id{font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.02em;}
+  .lab-card h3{font-weight:700;font-size:21px;letter-spacing:-.02em;margin:0 0 9px;line-height:1.1;}
+  .lab-card p{font-size:14px;color:var(--ink-2);line-height:1.55;margin:0 0 18px;flex:1;}
+  .lab-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px;}
+  .lab-tags span{font-family:var(--mono);font-size:10.5px;color:var(--ink-2);border:1px solid var(--line);border-radius:5px;padding:4px 9px;background:var(--bg);}
+  .lab-link{font-family:var(--mono);font-size:12.5px;color:var(--signal);border-bottom:2px solid var(--signal);padding-bottom:2px;align-self:flex-start;transition:.18s;}
+  .lab-link:hover{opacity:.7;}
+  .lab-link.muted{color:var(--ink-3);border-color:var(--line-strong);}
+
+  /* experience – B log, scaled up */
+  .log{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel);}
+  .logrow{display:grid;grid-template-columns:220px 1fr;gap:30px;padding:30px 34px;border-bottom:1px solid var(--line);transition:.18s;}
+  .logrow:last-child{border-bottom:none;}
+  .logrow:hover{background:#fcfcfb;}
+  .logrow .co{font-weight:700;font-size:23px;letter-spacing:-.02em;margin:0 0 3px;}
+  .logrow .when{font-family:var(--mono);font-size:12px;color:var(--ink-3);}
+  .logrow .role{font-family:var(--mono);font-size:12px;color:var(--ink-2);margin-top:8px;margin-bottom:0;}
+  .logrow .out{font-family:var(--mono);font-size:13.5px;color:var(--ink-2);margin:0 0 9px;line-height:1.5;}
+  .logrow .out .arr{color:var(--signal);}
+  .logrow .out b{color:var(--ink);}
+
+  /* writing */
+  .wbig{display:block;border:1px solid var(--line);border-radius:14px;padding:34px 36px;background:var(--panel);transition:.18s;}
+  .wbig:hover{border-color:var(--signal);}
+  .wbig .src{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--ink-3);margin-bottom:14px;}
+  .wbig h4{font-weight:600;font-size:clamp(22px,3vw,32px);letter-spacing:-.02em;margin:0;line-height:1.16;}
+  .wbig:hover h4{color:var(--signal);}
+
+  /* contact – C scale, B palette */
+  .contact{padding:130px 0 0;}
+  .contact h2{font-weight:700;font-size:clamp(38px,7vw,84px);letter-spacing:-.035em;line-height:1;margin:0 0 24px;max-width:16ch;}
+  .contact h2 .hl{color:var(--signal);}
+  .contact p{font-family:var(--mono);font-size:14px;color:var(--ink-2);max-width:52ch;margin:0 0 34px;}
+  .contact .herocta{gap:13px;}
+
+  footer{margin-top:120px;border-top:1px solid var(--line);}
+  .foot{display:flex;justify-content:space-between;padding:26px 0;font-family:var(--mono);font-size:11px;color:var(--ink-3);}
+
+  @media(max-width:880px){
+    .wrap{padding:0 24px;} nav{padding:0 24px;}
+    .navlinks{display:none;}
+    .strip{grid-template-columns:1fr 1fr;}
+    .strip .s:nth-child(2){border-right:none;}
+    .proj{grid-template-columns:1fr;gap:24px;}
+    .proj:nth-child(even) .media{order:0;}
+    .lab-grid{grid-template-columns:1fr;}
+    .logrow{grid-template-columns:1fr;gap:12px;}
+  }
+</style>
+</head>
+<body>
+<header>
+  <nav>
+    <a class="brand" href="#top"><span class="dot"></span>emma_sun</a>
+    <div class="navlinks">
+      <a href="#work">work</a><a href="#lab">lab</a><a href="#experience">experience</a><a href="#writing">writing</a><a href="#contact">contact</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero wrap">
+    <div class="kicker rise d1"><span class="blink"></span>AI-native PM · builds 0→1</div>
+    <h1 class="rise d2">Product manager who <span class="hl">ships the build.</span></h1>
+    <p class="lede rise d3">I work an arm's length from the model — <b>dialogue taxonomies, eval frameworks, release gates</b>, plus the front-ends and live agents on top. Two AI products co-founded, a third hand-built solo in <code>Claude API</code> + browser automation.</p>
+    <div class="herocta rise d4">
+      <a class="btn solid mono" href="/emma-sun-resume.pdf" target="_blank">$ download résumé →</a>
+      <a class="btn ghost" href="#work">See the work</a>
+    </div>
+    <div class="strip rise d5">
+      <div class="s"><div class="v">$1<span class="u">M</span></div><div class="k">angel-backed · 2 co-founded</div></div>
+      <div class="s"><div class="v">30<span class="u">+</span></div><div class="k">hospitals · 500+ clinicians</div></div>
+      <div class="s"><div class="v">0.31<span class="u">%</span></div><div class="k">hallucination · ChatGeneT</div></div>
+      <div class="s"><div class="v">0.89</div><div class="k">peak F1 · ACM ICAIF '25</div></div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="work">
+    <div class="sec-top"><h2>Selected <span class="hl">Work</span></h2><span class="n">04 projects · 2024–25</span></div>
+
+    <article class="proj">
+      <a class="media" href="https://www.getchatgenet.com" target="_blank"><span class="corner">proj/chatgenet</span><img src="assets/chatgenet.png" alt="ChatGeneT" /></a>
+      <div>
+        <div class="ptag">AI Healthcare<span class="status st-live">● LIVE</span></div>
+        <h3>ChatGeneT</h3>
+        <p>AI patient simulator for hospital-based clinical training. Multi-turn dialogue that simulates realistic encounters, generates structured feedback, and enforces factual consistency across sessions.</p>
+        <div class="role">Product · Eval · QA — dialogue taxonomy, eval framework, release-gate protocol</div>
+        <dl class="kv">
+          <dt>scale</dt><dd>30+ hospitals · 500+ clinicians</dd>
+          <dt>quality</dt><dd><b>0.31%</b> hallucination · 4.5/5 CSAT</dd>
+        </dl>
+        <div class="plinks"><a href="https://www.getchatgenet.com" target="_blank">live ↗</a><a href="#">case study →</a></div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <a class="media" href="https://getvalence.io" target="_blank"><span class="corner">proj/valence</span><img src="assets/valence.png" alt="Valence" /></a>
+      <div>
+        <div class="ptag">Agent Marketplace<span class="status st-live">● LIVE</span></div>
+        <h3>Valence</h3>
+        <p>A marketplace where domain experts teach, test, and publish AI agents that encode their judgment. Built the teach-test-publish core loop and owned front-end design end to end.</p>
+        <div class="role">Founding Product (COO) — product, design, front-end, marketing, supply</div>
+        <dl class="kv">
+          <dt>built</dt><dd><b>10+</b> agents hand-built · 45–70 curated</dd>
+          <dt>scope</dt><dd>0→1 product · design · front-end</dd>
+        </dl>
+        <div class="plinks"><a href="https://getvalence.io" target="_blank">live ↗</a><a href="#">case study →</a></div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <a class="media" href="https://github.com/emma-devhub" target="_blank"><span class="corner">proj/repurpose</span><img src="assets/repurpose.png" alt="Repurpose" /></a>
+      <div>
+        <div class="ptag">AI Workflow<span class="status st-build">▲ CLI</span></div>
+        <h3>Repurpose</h3>
+        <p>AI content redistribution pipeline. Ingests long-form content and generates platform-native drafts with audience-aware style configs across channels. Built end to end as a production CLI.</p>
+        <div class="role">Sole builder — Claude API, X API, LinkedIn API, browser automation</div>
+        <dl class="kv">
+          <dt>stack</dt><dd>Claude API · X · LinkedIn · browser</dd>
+          <dt>output</dt><dd>multi-platform · persona-aware</dd>
+        </dl>
+        <div class="plinks"><a href="https://github.com/emma-devhub" target="_blank">github ↗</a><a href="#">case study →</a></div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <a class="media" href="#"><span class="corner">proj/beigebook</span><img src="assets/beigebook.png" alt="Beige Book" /></a>
+      <div>
+        <div class="ptag">LLM Research<span class="status st-pub">◆ ACM ICAIF '25</span></div>
+        <h3>Decoding the Beige Book</h3>
+        <p>End-to-end text-to-signal LLM pipeline transforming Fed Beige Book narratives into structured recession-risk signals. 526 documents, 56K+ topic entries, multi-model majority voting.</p>
+        <div class="role">Topic taxonomy · paragraph-level routing · ground-truth guidelines</div>
+        <dl class="kv">
+          <dt>data</dt><dd>526 docs · 56K+ entries</dd>
+          <dt>result</dt><dd><b>F1 0.89</b> · oral presentation</dd>
+        </dl>
+        <div class="plinks"><a href="#">case study →</a></div>
+      </div>
+    </article>
+  </section>
+
+  <section class="sec wrap" id="lab">
+    <div class="sec-top"><h2><span class="hl">Lab</span> — side projects</h2><span class="n">things I build for myself · 05</span></div>
+    <div class="lab-grid">
+
+      <article class="lab-card">
+        <div class="lab-top"><span class="lab-id">agent/foundry</span><span class="status st-build">▲ CONCEPT</span></div>
+        <h3>Foundry</h3>
+        <p>A building agent that distills an expert's workflow into a live AI agent — instead of uploading files, it interviews you, studies your examples, surfaces edge cases, and tests the workflow before launch.</p>
+        <div class="lab-tags"><span>Agent builder</span><span>HireClaw</span><span>Product</span></div>
+        <a class="lab-link muted" href="#">concept →</a>
+      </article>
+
+      <article class="lab-card">
+        <div class="lab-top"><span class="lab-id">app/macro-ide</span><span class="status st-build">▲ BUILDING</span></div>
+        <h3>Macro Research IDE</h3>
+        <p>A Cursor-style writing environment for macro research: file-tree explorer, rich notes with live charts and tables, and a side-panel agent powered by headless Claude Code + custom MCP tools.</p>
+        <div class="lab-tags"><span>Next.js</span><span>MCP</span><span>Claude Code</span></div>
+        <a class="lab-link muted" href="#">writeup →</a>
+      </article>
+
+      <article class="lab-card">
+        <div class="lab-top"><span class="lab-id">app/labor-dash</span><span class="status st-live">● LIVE</span></div>
+        <h3>Labor Market Dashboard</h3>
+        <p>A macro dashboard tracking the US labor market and inflation — pulls FRED/BLS series, computes headline changes, and renders interactive charts I use to write data recaps.</p>
+        <div class="lab-tags"><span>Next.js</span><span>FRED / BLS</span><span>Data viz</span></div>
+        <a class="lab-link muted" href="#">writeup →</a>
+      </article>
+
+      <article class="lab-card">
+        <div class="lab-top"><span class="lab-id">app/fed-chatterbox</span><span class="status st-live">● LIVE</span></div>
+        <h3>Fed Chatterbox</h3>
+        <p>Tracks Federal Reserve communications and scores their policy direction, with a curated research feed and a newsletter — an LLM pipeline over central-bank speak.</p>
+        <div class="lab-tags"><span>NLP</span><span>Gemini API</span><span>Newsletter</span></div>
+        <a class="lab-link muted" href="#">writeup →</a>
+      </article>
+
+      <article class="lab-card">
+        <div class="lab-top"><span class="lab-id">app/thinkflow</span><span class="status st-live">● LIVE</span></div>
+        <h3>ThinkFlow</h3>
+        <p>A visual AI research tool that turns conversations into an explorable mind map — every answer is a draggable card on an infinite canvas you can branch from, with adaptive tree/chain layout.</p>
+        <div class="lab-tags"><span>React canvas</span><span>Groq / Gemini</span><span>AI tool</span></div>
+        <a class="lab-link muted" href="#">writeup →</a>
+      </article>
+
+      <article class="lab-card" style="justify-content:center;align-items:flex-start;background:var(--bg);border-style:dashed;">
+        <div class="lab-top"><span class="lab-id">~/more</span></div>
+        <h3 style="color:var(--ink-2);">…and more on GitHub</h3>
+        <p>Most of these started as a weekend itch. I ship small, often.</p>
+        <a class="lab-link" href="https://github.com/emma-devhub" target="_blank">github.com/emma-devhub ↗</a>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="sec wrap" id="experience">
+    <div class="sec-top"><h2>Experience</h2><span class="n">product · ai · finance</span></div>
+    <div class="log">
+      <div class="logrow">
+        <div>
+          <p class="co">Commure</p>
+          <div class="when">2023 — 2024 · Series D</div>
+          <p class="role">PM, AI-Powered Enterprise Platforms</p>
+        </div>
+        <div>
+          <p class="out"><span class="arr">→</span> AI-to-billing on fine-tuned LLMs · <b>+20% revenue</b>, –25% denials, 150+ orgs</p>
+          <p class="out"><span class="arr">→</span> ML customer-health scoring · <b>–50% churn</b>, +$2M recovered</p>
+        </div>
+      </div>
+      <div class="logrow">
+        <div>
+          <p class="co">JPMorgan</p>
+          <div class="when">2021 — 2023 · Research Portal</div>
+          <p class="role">PM &amp; AI Strategy</p>
+        </div>
+        <div>
+          <p class="out"><span class="arr">→</span> Audio-to-signal AI pipeline · <b>+$5M revenue</b>, +30% fine-tune precision</p>
+          <p class="out"><span class="arr">→</span> Trade-rec engine ground truth · <b>+45% profit</b>, +30% volume</p>
+        </div>
+      </div>
+      <div class="logrow">
+        <div>
+          <p class="co">Société Générale</p>
+          <div class="when">2019 — 2021 · Trading</div>
+          <p class="role">PM, Trading Platform &amp; Algorithms</p>
+        </div>
+        <div>
+          <p class="out"><span class="arr">→</span> Single-dealer platform growth · <b>+300% active users</b>, +170% flow</p>
+          <p class="out"><span class="arr">→</span> ECN/API integration expansion · <b>+30% sales</b></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="writing">
+    <div class="sec-top"><h2>Writing</h2><span class="n">medium</span></div>
+    <a class="wbig" href="https://medium.com/@emmayisun/the-agentic-future-is-here-what-i-predicted-in-2024-and-what-actually-happened-d923e1b54af1" target="_blank">
+      <div class="src">Medium · 2025 · ↗</div>
+      <h4>The Agentic Future Is Here: What I Predicted in 2024, and What Actually Happened</h4>
+    </a>
+  </section>
+
+  <section class="contact wrap" id="contact">
+    <h2>Let's build something <span class="hl">that ships.</span></h2>
+    <p>// open to AI product &amp; founder-in-residence roles building LLM systems for complex, high-stakes workflows</p>
+    <div class="herocta">
+      <a class="btn solid mono" href="mailto:emmayisun@gmail.com">emmayisun@gmail.com</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/emmayisun" target="_blank">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/emma-devhub" target="_blank">GitHub</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot"><span>© 2026 emma_sun</span><span>Builder · Big-Image — B×C</span></div>
+</footer>
+</body>
+</html>

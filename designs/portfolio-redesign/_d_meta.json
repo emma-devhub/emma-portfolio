@@ -1,0 +1,54 @@
+{
+  "type": "design",
+  "designSystems": [],
+  "primaryDesignSystem": null,
+  "assets": {
+    "Direction A — Editorial Refined": {
+      "versions": [
+        {
+          "path": "Direction A — Editorial Refined.html",
+          "createdAt": "2026-06-19T16:50:14.015Z",
+          "status": "needs-review"
+        }
+      ]
+    },
+    "Direction B — Technical Builder": {
+      "versions": [
+        {
+          "path": "Direction B — Technical Builder.html",
+          "createdAt": "2026-06-19T16:50:14.068Z",
+          "status": "needs-review"
+        }
+      ]
+    },
+    "Direction C — Bold Modern": {
+      "versions": [
+        {
+          "path": "Direction C — Bold Modern.html",
+          "createdAt": "2026-06-19T16:50:14.121Z",
+          "status": "needs-review"
+        }
+      ]
+    },
+    "index": {
+      "versions": [
+        {
+          "path": "index.html",
+          "createdAt": "2026-06-19T16:50:14.175Z",
+          "status": "needs-review"
+        }
+      ]
+    },
+    "Direction BC v2 — Kami Navy": {
+      "versions": [
+        {
+          "path": "Direction BC v2 — Kami Navy.html",
+          "createdAt": "2026-06-20T20:40:59.967Z",
+          "status": "needs-review"
+        }
+      ]
+    }
+  },
+  "createdAt": "2026-06-19T16:50:14.016Z",
+  "updatedAt": "2026-06-20T20:40:59.968Z"
+}
