@@ -73,7 +73,10 @@
   .navlinks a:hover{background:var(--acc-soft);color:var(--acc);}
 
   /* hero · calm, serif headline */
-  .hero{padding:96px 0 58px;}
+  .hero{padding:96px 0 58px;display:grid;grid-template-columns:1fr 300px;gap:60px;align-items:center;}
+  .hero-photo{position:relative;aspect-ratio:4/5;border-radius:16px;background:var(--bg-soft);border:1px dashed var(--line-strong);display:flex;align-items:center;justify-content:center;text-align:center;}
+  .hero-photo .lbl{font-family:var(--mono);font-size:11px;color:var(--ink-3);line-height:1.6;}
+  .hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 16%;border-radius:16px;border:1px solid var(--line);box-shadow:0 16px 38px rgba(20,21,26,.12);}
   .kicker{font-family:var(--mono);font-size:12.5px;color:var(--acc);margin-bottom:28px;display:flex;align-items:center;gap:10px;letter-spacing:.02em;}
   .kicker .mark{width:7px;height:7px;border-radius:50%;background:var(--acc);}
   h1{font-family:var(--serif);font-weight:600;font-size:clamp(42px,6.6vw,80px);line-height:1.05;letter-spacing:-.018em;margin:0 0 28px;max-width:17ch;}
@@ -204,6 +207,8 @@
   @media(max-width:880px){
     .wrap{padding:0 24px;} nav{padding:0 24px;}
     .navlinks{display:none;}
+    .hero{grid-template-columns:1fr;gap:30px;}
+    .hero-photo{max-width:240px;order:-1;}
     .strip{grid-template-columns:1fr 1fr;}
     .strip .s:nth-child(2){border-right:none;}
     .proj{grid-template-columns:1fr;gap:24px;}
@@ -244,10 +249,16 @@
 
 <main id="top">
   <section class="hero wrap">
-    <h1 class="rise d2" style="font-size:clamp(27px,3.4vw,40px);max-width:20ch;line-height:1.22;font-weight:600;">I'm <span class="hl">Emma</span>, a product manager working in AI.</h1>
-    <p class="lede rise d3" style="max-width:56ch;">I spend most of my time at the layer where a model's capability has to become something people actually use, and keep using. Most of what matters there is quiet: evaluation, edge cases, knowing when an answer is wrong. When I'm not building, I'm writing about the Fed and the US economy.</p>
-    <div class="herocta rise d4">
-      <a class="btn ghost" href="#work">See the work</a>
+    <div class="hero-text">
+      <h1 class="rise d2" style="font-size:clamp(27px,3.4vw,40px);max-width:20ch;line-height:1.22;font-weight:600;">I'm <span class="hl">Emma</span>, a product manager working in AI.</h1>
+      <p class="lede rise d3" style="max-width:56ch;">I spend most of my time at the layer where a model's capability has to become something people actually use, and keep using. Most of what matters there is quiet: evaluation, edge cases, knowing when an answer is wrong. Building products and reading markets come from the same place for me: both are puzzles I'd rather take apart than leave alone. When I'm not building, I'm writing about the Fed and the US economy.</p>
+      <div class="herocta rise d4">
+        <a class="btn ghost" href="#work">See the work</a>
+      </div>
+    </div>
+    <div class="hero-photo rise d2">
+      <span class="lbl">your photo<br>assets/emma.png</span>
+      <img src="assets/emma.png" alt="Emma Sun" onerror="this.style.display='none'" />
     </div>
   </section>
 
