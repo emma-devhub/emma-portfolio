@@ -144,6 +144,17 @@
   .lab-link{font-family:var(--mono);font-size:12.5px;color:var(--acc);border-bottom:1px solid var(--acc);padding-bottom:2px;align-self:flex-start;transition:.18s;}
   .lab-link:hover{opacity:.65;}
   .lab-link.muted{color:var(--ink-3);border-color:var(--line-strong);}
+  .lab-thumb{position:relative;aspect-ratio:16/10;border-radius:9px;overflow:hidden;background:var(--inset);border:1px solid var(--line);margin-bottom:16px;display:flex;align-items:center;justify-content:center;}
+  .lab-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;cursor:zoom-in;transition:transform .4s;}
+  .lab-card:hover .lab-thumb img{transform:scale(1.03);}
+  .lab-thumb .ph{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);}
+  /* lightbox */
+  .lightbox{position:fixed;inset:0;z-index:200;background:rgba(15,17,22,.86);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:48px;cursor:zoom-out;}
+  .lightbox.open{display:flex;}
+  .lightbox figure{margin:0;display:flex;flex-direction:column;gap:14px;max-width:1100px;max-height:90vh;}
+  .lightbox img{max-width:100%;max-height:82vh;object-fit:contain;border-radius:10px;box-shadow:0 24px 70px rgba(0,0,0,.55);}
+  .lightbox figcaption{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:#d4d7dd;text-align:center;}
+  .lightbox .x{position:fixed;top:20px;right:26px;font-family:var(--mono);font-size:13px;color:#d4d7dd;cursor:pointer;}
 
   /* automation list */
   .auto{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel);}
@@ -331,6 +342,7 @@
     <div class="lab-grid">
 
       <article class="lab-card">
+        <div class="lab-thumb"><span class="ph">screenshot · 16:10</span></div>
         <div class="lab-top"><span class="lab-id">macro-corpus</span><span class="status st-build">▲ Engine</span></div>
         <h3>macro-corpus</h3>
         <p>A client-agnostic data and "lens" layer over MCP, a zero-dependency server that encodes how I read each macro indicator. It's the engine the Macro Research IDE runs on.</p>
@@ -338,6 +350,7 @@
       </article>
 
       <article class="lab-card">
+        <div class="lab-thumb"><span class="ph">screenshot · 16:10</span></div>
         <div class="lab-top"><span class="lab-id">macro-ide</span><span class="status st-build">▲ Building</span></div>
         <h3>Macro Research IDE</h3>
         <p>A Cursor-style writing environment for macro research: a file-tree explorer, rich notes with live charts and tables, and a side-panel agent powered by headless Claude Code and custom MCP tools.</p>
@@ -345,6 +358,7 @@
       </article>
 
       <article class="lab-card">
+        <div class="lab-thumb"><span class="ph">screenshot · 16:10</span></div>
         <div class="lab-top"><span class="lab-id">macro-terminal</span><span class="status st-live">● Live</span></div>
         <h3>Macro Terminal</h3>
         <p>A macro research terminal I built and use daily: labor, inflation, rates, and cross-asset on one screen, pulling FRED, BLS, and live market data into interactive charts. The data backbone I write my recaps from.</p>
@@ -352,6 +366,7 @@
       </article>
 
       <article class="lab-card">
+        <div class="lab-thumb"><span class="ph">screenshot · 16:10</span></div>
         <div class="lab-top"><span class="lab-id">fed-chatterbox</span><span class="status st-live">● Live</span></div>
         <h3>Fed Chatterbox</h3>
         <p>Tracks Federal Reserve communications and scores their policy direction, with a curated research feed and a newsletter. An LLM pipeline over central-bank speak.</p>
@@ -359,6 +374,7 @@
       </article>
 
       <article class="lab-card">
+        <div class="lab-thumb"><span class="ph">screenshot · 16:10</span></div>
         <div class="lab-top"><span class="lab-id">thinkflow</span><span class="status st-live">● Live</span></div>
         <h3>ThinkFlow</h3>
         <p>A visual AI research tool that turns conversations into an explorable mind map. Every answer is a draggable card on an infinite canvas you can branch from, with adaptive tree-or-chain layout.</p>
@@ -366,6 +382,7 @@
       </article>
 
       <article class="lab-card">
+        <div class="lab-thumb"><span class="ph">screenshot · 16:10</span></div>
         <div class="lab-top"><span class="lab-id">rate-brief</span><span class="status st-live">● Daily</span></div>
         <h3>Rate Brief</h3>
         <p>An automated rates research pipeline that runs every morning: pulls news (RSS and Tavily), drafts with an LLM, and renders a bilingual HTML and PDF brief to my inbox. It has run on its own every morning for months.</p>
@@ -494,7 +511,27 @@
   <div class="wrap foot"><span>© 2026 Emma Sun</span><span>Kami · Navy v2</span></div>
 </footer>
 
+<div class="lightbox" id="lightbox">
+  <span class="x">close ✕</span>
+  <figure><img id="lb-img" src="" alt="" /><figcaption id="lb-cap"></figcaption></figure>
+</div>
+
 <script>
+  (function(){
+    var lb = document.getElementById('lightbox');
+    document.querySelectorAll('.lab-thumb img').forEach(function(img){
+      img.addEventListener('click', function(){
+        var card = img.closest('.lab-card');
+        var h3 = card && card.querySelector('h3');
+        document.getElementById('lb-img').src = img.dataset.full || img.src;
+        document.getElementById('lb-cap').textContent = h3 ? h3.textContent : '';
+        lb.classList.add('open');
+      });
+    });
+    lb.addEventListener('click', function(){ lb.classList.remove('open'); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') lb.classList.remove('open'); });
+  })();
+
   document.querySelectorAll('.bgtoggle button').forEach(function(b){
     b.addEventListener('click', function(){
       var g = b.dataset.group;
