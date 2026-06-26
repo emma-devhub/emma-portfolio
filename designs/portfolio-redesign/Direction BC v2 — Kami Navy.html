@@ -189,9 +189,8 @@
   .exprow{display:grid;grid-template-columns:250px 1fr;gap:44px;padding:34px 0;border-bottom:1px solid var(--line);}
   .exprow .co2{font-family:var(--serif);font-weight:600;font-size:22px;letter-spacing:-.01em;margin:0 0 7px;color:var(--ink);}
   .exprow .kick{font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;color:var(--ink-3);margin:0;line-height:1.5;}
-  .exprow .step{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink-3);margin:0 0 9px;text-transform:uppercase;}
-  .exprow .move{font-family:var(--serif);font-weight:600;font-size:clamp(23px,2.7vw,31px);letter-spacing:-.018em;line-height:1.1;margin:0 0 14px;color:var(--acc);}
-  .exprow .note{font-size:15px;color:var(--ink-2);line-height:1.64;margin:0;max-width:58ch;}
+  .exprow .label{font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--acc);margin:0 0 11px;}
+  .exprow .note{font-size:17px;color:var(--ink);line-height:1.62;margin:0;max-width:58ch;font-family:var(--serif);}
   .exprow .note em{font-style:italic;color:var(--ink);font-weight:600;}
   .exprow .note b{color:var(--ink);font-weight:600;}
   .exprow .receipt{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:16px 0 0;}
@@ -439,7 +438,7 @@
 
   <section class="sec wrap" id="experience">
     <div class="sec-top"><h2>Experience</h2><span class="n">the same move, four times</span></div>
-    <p class="exp-thesis">Read top to bottom, my resume looks like four different jobs. It is really <b>one move, run four times</b>: find someone who is good at their work, get inside their workflow until I understand it better than they can explain it, and <span class="acc">turn it into a product</span>. Each time, I went a little deeper. Lately the product is an agent. The move hasn't changed.</p>
+    <p class="exp-thesis">Read top to bottom, my resume looks like four jobs. It is closer to <b>one thing I kept doing</b>: getting inside someone's workflow until I understand it better than they can explain it, then <span class="acc">turning it into a product</span>. Each time I went a little deeper.</p>
 
     <div class="explog">
       <div class="exprow">
@@ -448,9 +447,8 @@
           <p class="kick">2019–2021 · my first desk<br/>PM, trading platform &amp; algos</p>
         </div>
         <div>
-          <p class="step">Move 01 · build for the expert</p>
-          <p class="move">Learn the client's workflow. Build them the platform.</p>
-          <p class="note">My first job, on a sales and trading desk. It taught me the whole thing starts the same way every time: you live inside someone else's workflow until you can see what they actually need, then you build it for them. Everything after this is a variation on that.</p>
+          <p class="label">build for the expert</p>
+          <p class="note">On a sales and trading desk, I learned that the work always starts the same way: you live inside someone's workflow until you can see what they actually need, then you build it for them.</p>
           <p class="receipt">Single-dealer platform · <b>+300% active users</b>, +170% flow</p>
         </div>
       </div>
@@ -461,9 +459,8 @@
           <p class="kick">2021–2023 · Fed research<br/>PM &amp; AI strategy</p>
         </div>
         <div>
-          <p class="step">Move 02 · automate the brain</p>
-          <p class="move">Stop building for the expert. Become one.</p>
-          <p class="note">I built a system that watched, monitored, analyzed and wrote up Fed speeches the way a strategist does, modeled as modules. My boss looked at it and said, <em>you automated my brain.</em> That was the signal. It is also where I first understood that the real product is the evaluation: what to label, what counts as good, where to put the gates.</p>
+          <p class="label">become the expert</p>
+          <p class="note">I modeled how a strategist reads Fed speeches and built it into a system. My boss looked at it and said, <em>you automated my brain.</em> It is also where I learned the real product is the evaluation, not the model: what to label, what counts as good, where the gates go.</p>
           <p class="receipt">Audio-to-signal pipeline · <b>+$5M revenue</b>, +45% desk profit</p>
         </div>
       </div>
@@ -474,9 +471,8 @@
           <p class="kick">2023–2024 · healthcare<br/>PM, AI enterprise platforms</p>
         </div>
         <div>
-          <p class="step">Move 03 · automate the flow</p>
-          <p class="move">Same move, new domain.</p>
-          <p class="note">Watch how a medical biller actually completes the flow, end to end, then automate every step of it. I wasn't there long, but it confirmed the instinct travels: the domain changes, the move doesn't.</p>
+          <p class="label">same instinct, new domain</p>
+          <p class="note">A hospital's billing flow this time. Watch how the expert completes it end to end, then automate every step. The domain changed; the instinct didn't.</p>
           <p class="receipt">AI-to-billing on fine-tuned LLMs · <b>+20% revenue</b>, –25% denials</p>
         </div>
       </div>
@@ -487,15 +483,12 @@
           <p class="kick">2024–present · building it now<br/>co-founder</p>
         </div>
         <div>
-          <p class="step">Move 04 · decompose the person</p>
-          <p class="move">Automate not the work, but the person doing it.</p>
-          <p class="note">A clinical patient simulator. To build it you realize a patient is more modular than they look: what they say is really <b>content × tone × a decision tree</b>. Once you can decompose a person into parts, you can rebuild them. That is the whole thesis behind what I build now: getting what is in an expert's head out, and into an agent.</p>
+          <p class="label">decompose the expert</p>
+          <p class="note">Building a clinical patient simulator, you notice a patient is more modular than they look: what they say is really <b>content × tone × a decision tree</b>. Once a person is in parts, you can rebuild them in an agent. That is what I build now.</p>
           <p class="receipt">Clinical dialogue · hallucinations held to <b>0.31%</b></p>
         </div>
       </div>
     </div>
-
-    <p class="exp-foot">Workflow in, product out. Six years compounding one instinct.</p>
   </section>
 
   <section class="sec wrap" id="writing">
