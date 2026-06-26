@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Interview, Don&#x27;t Upload · Emma Sun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700;1,8..60,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+<style>
+ :root{--bg:#fcfcfd;--ink:#16181d;--ink-2:#454953;--acc:#1B365D;--line:#e9eaee;--serif:"Source Serif 4",Georgia,serif;--mono:"JetBrains Mono",monospace;}
+ *{box-sizing:border-box;} html{scroll-behavior:smooth;}
+ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);-webkit-font-smoothing:antialiased;}
+ .top{border-bottom:1px solid var(--line);}
+ .top .in{max-width:720px;margin:0 auto;padding:20px 24px;}
+ .back{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--acc);text-decoration:none;}
+ .back:hover{opacity:.65;}
+ main{max-width:680px;margin:0 auto;padding:56px 24px 96px;}
+ .tag{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin-bottom:14px;}
+ h1{font-weight:700;font-size:clamp(30px,5vw,44px);line-height:1.1;letter-spacing:-.02em;margin:0 0 14px;}
+ .dek{font-style:italic;font-size:19px;color:var(--ink-2);line-height:1.5;margin:0 0 36px;}
+ main p{font-size:18.5px;line-height:1.72;color:#23262d;margin:0 0 20px;}
+ main h2{font-weight:700;font-size:24px;letter-spacing:-.01em;margin:38px 0 12px;}
+ main strong{font-weight:700;color:var(--ink);}
+ main em{font-style:italic;}
+ .end{margin-top:48px;font-family:var(--mono);font-size:12px;color:#9aa0aa;border-top:1px solid var(--line);padding-top:20px;}
+ .end a{color:var(--acc);}
+</style></head>
+<body>
+ <div class="top"><div class="in"><a class="back" href="../Emma Sun — portfolio (standalone).html">← Emma Sun</a></div></div>
+ <main><div class="tag">Essay</div><h1>Interview, Don&#x27;t Upload</h1>
+<p class="dek">How I think about getting a human expert&#x27;s judgment into an agent.</p>
+<p>Almost every &quot;build your own expert agent&quot; product starts the same way: upload your documents, or write down your process. It feels reasonable. It is also the wrong interface, because it asks people to do the single thing they are worst at, which is describing their own method.</p>
+<p>I have spent the last stretch building agents alongside real domain experts, and this is the wall I keep hitting. The constraint is not what the model can do. It is how little of what the expert actually knows ever makes it into the system in the first place. Capability is increasingly a commodity. What is scarce is distillation: getting a person&#x27;s tacit method and taste out of their head and into a form an agent can reproduce. Right now most tools do that part badly, and the reason is the upload box.</p>
+<p>Here is the uncomfortable thing I learned. Most people cannot accurately describe what they know. Ask a senior analyst to write down their method and you get platitudes. The real method is buried in a thousand small calls they make without narrating: which number they check first, what makes them distrust a clean-looking chart, when they stop researching and commit. None of that survives a blank page. But the same person is excellent at answering a specific question. Put a concrete situation in front of them and the judgment comes back instantly and precisely.</p>
+<p>That asymmetry is the whole design. People are bad at self-description and good at answering questions, so you should not ask them to self-describe. You should interview them. One focused question at a time, and each answer fills a gap in a structured rulebook rather than a blank document: the happy path, the decision rules, the anti-patterns, the edge cases, the tone. The expert never has to know they have a &quot;method.&quot; They just have to answer, which is the thing they are already good at. Holding the structure is the builder&#x27;s job, not theirs.</p>
+<p>The interview is a probe, not a transcript. You ask, the expert answers, and then you generate a case the answer did not cover and ask again. That is how you surface the edge cases an expert handles on instinct and would never think to mention. Each round narrows the gap between what the agent does and what the expert would have done. You are not collecting their words. You are triangulating their judgment. And because you are filling a rulebook, you can see what is still missing, which a pile of uploaded files can never tell you.</p>
+<p>Then you compile and you test. The filled rulebook becomes a reusable skill, and before it goes anywhere near a real user it gets run against real cases. This matters as much as the interview, because an agent that produces the right answer for the wrong reasons will eventually produce the wrong answer with total confidence. Teaching, testing, and only then publishing is the loop. Skip the testing and you have shipped a convincing impersonation, and impersonations fail exactly when the situation gets interesting.</p>
+<p>Which brings me to taste, the part I am most interested in and the part that resists all of this the longest. Capability gets you to competent. Taste is the last mile to good. And taste is hard to transfer precisely because it does not look like a rule. It lives in the judgment calls, and even more in what a person chooses to pay attention to in the first place. My own taste, the thing I would actually want to pass on, shows up less in my conclusions than in what information I decide is worth taking in and what I ignore. Two analysts with identical models and identical data produce different work because they attend to different things. That selection, the act of attention before any reasoning happens, is the most expensive thing to elicit and the most valuable thing to capture. A good interview can reach it. An upload box never will.</p>
+<p>This is the thinking behind Foundry, the teach flow inside the marketplace I am building. I am writing about the approach, not the internals, but the shape is simple: interview the expert, fill a structured rulebook, compile it into a skill, and test it before it is live. The point is the principle, not the prompt. Make the elicitation good and the rest follows.</p>
+<p>So here is the milestone I am watching for, and it is not a benchmark score. The day teaching a real agent feels as easy as recording a short video, that is the real product moment. Right now, capturing an expert is a project. It should feel like low-friction, fast, almost fun, with the hard structural work hidden behind a few good questions. Whoever builds that elicitation interface, the one that gets tacit knowledge and taste out of a human without making them write an essay about themselves, does not just ship a feature. They unlock the supply of experts willing to be in the system at all. The models will keep getting better on their own. The interview is the part somebody actually has to build.</p>
+ <div class="end">Written by Emma Sun · <a href="../Emma Sun — portfolio (standalone).html">back to portfolio</a></div></main>
+</body></html>
