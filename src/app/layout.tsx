@@ -1,24 +1,10 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Libre_Franklin } from "next/font/google";
 import "./globals.css";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const libre = Libre_Franklin({
-  variable: "--font-libre",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Emma Sun",
-  description: "AI product builder. ChatGeneT, Valence, Repurpose, Beige Book LLM research.",
+  description:
+    "Emma Sun — a product manager working in AI. ChatGeneT, Valence, Dispatch, and LLM research for complex, high-stakes workflows.",
 };
 
 export default function RootLayout({
@@ -27,14 +13,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${playfair.variable} ${libre.variable} antialiased bg-white`}>
-        <Navigation />
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
-      </body>
+    <html lang="en" data-bg="white" data-accent="navy">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body>{children}</body>
     </html>
   );
 }
