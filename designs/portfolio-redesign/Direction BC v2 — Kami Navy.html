@@ -73,7 +73,11 @@
   .navlinks a:hover{background:var(--acc-soft);color:var(--acc);}
 
   /* hero · calm, serif headline */
-  .hero{padding:96px 0 58px;display:grid;grid-template-columns:1fr 300px;gap:60px;align-items:center;}
+  .hero{padding:88px 0 58px;display:grid;grid-template-columns:1fr 280px;gap:56px;align-items:start;}
+  .hero-narr p{font-family:var(--serif);font-size:17px;line-height:1.66;color:var(--ink-2);max-width:60ch;margin:0 0 17px;}
+  .hero-narr p b{color:var(--ink);font-weight:600;}
+  .hero-narr p em{font-style:italic;color:var(--ink);}
+  .hero-narr .turn{font-family:var(--serif);font-size:19px;color:var(--acc);font-weight:600;margin:6px 0 19px;letter-spacing:-.01em;}
   .hero-photo{position:relative;aspect-ratio:4/5;border-radius:16px;background:var(--bg-soft);border:1px dashed var(--line-strong);display:flex;align-items:center;justify-content:center;text-align:center;}
   .hero-photo .lbl{font-family:var(--mono);font-size:11px;color:var(--ink-3);line-height:1.6;}
   .hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 16%;border-radius:16px;border:1px solid var(--line);box-shadow:0 16px 38px rgba(20,21,26,.12);}
@@ -265,11 +269,16 @@
 
 <main id="top">
   <section class="hero wrap">
-    <div class="hero-text">
-      <h1 class="rise d2" style="font-size:clamp(27px,3.4vw,40px);max-width:20ch;line-height:1.22;font-weight:600;">I'm <span class="hl">Emma</span>, a product manager working in AI.</h1>
-      <p class="lede rise d3" style="max-width:58ch;margin-bottom:16px;">I spend most of my time at the layer where a model's capability has to become something people actually use, and keep using. Most of what matters there is quiet: evaluation, edge cases, knowing when an answer is wrong.</p>
-      <p class="lede rise d3" style="max-width:58ch;">In a previous life, I worked on one of the largest trading floors in the world. The problems look different, but the mindset is surprisingly similar: making decisions under uncertainty, separating signal from noise, and constantly updating your beliefs as new evidence arrives. So when I'm not building, you'll probably find me spending an unreasonable amount of time thinking and writing about the Fed and the U.S. economy.</p>
-      <div class="herocta rise d4">
+    <div class="hero-text hero-narr">
+      <h1 class="rise d2" style="font-size:clamp(28px,3.8vw,44px);max-width:20ch;line-height:1.16;font-weight:600;margin-bottom:26px;">I didn't start in product by writing <span class="hl">PRDs</span>.</h1>
+      <p class="rise d3">I started on trading floors, sitting next to people making fast decisions with incomplete information. My job was to understand how they worked: what they watched, what they ignored, where the workflow broke, and what a better tool would have changed.</p>
+      <p class="turn rise d3">That instinct stayed.</p>
+      <p class="rise d3">At JPMorgan, I built tools around how macro people think: monitoring Fed speeches, turning messy communication into signals, and structuring client conversations into something a recommendation system could learn from. A colleague once told me, <em>"you automated my brain."</em> I still think that is the best compliment a product can get.</p>
+      <p class="rise d3">Later, in healthcare and clinical simulation, the domain changed but the problem did not. Billing experts, clinicians, patients: they all had workflows, judgment calls, edge cases, and failure modes.</p>
+      <p class="rise d3"><b>That is still the work I like most: watching how experts think, then turning that into systems people can use.</b></p>
+      <p class="rise d3">Today, most of my work sits at the layer where a model's capability has to become something people actually use, trust, and keep using. The important parts are usually quiet: evaluation, edge cases, knowing when an answer is wrong, and understanding the workflow well enough to know what "right" even means.</p>
+      <p class="rise d3">And when I'm not building, you'll probably still find me spending an unreasonable amount of time thinking and writing about the Fed and the U.S. economy :)</p>
+      <div class="herocta rise d4" style="margin-top:30px;">
         <a class="btn ghost" href="#work">See the work</a>
       </div>
     </div>
