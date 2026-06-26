@@ -182,16 +182,22 @@
   .promptbox pre .s{color:#a7e0c0;}
 
   /* experience */
-  .log{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel);}
-  .logrow{display:grid;grid-template-columns:230px 1fr;gap:30px;padding:30px 34px;border-bottom:1px solid var(--line);transition:.18s;}
-  .logrow:last-child{border-bottom:none;}
-  .logrow:hover{background:var(--inset);}
-  .logrow .co{font-family:var(--serif);font-weight:600;font-size:23px;letter-spacing:-.01em;margin:0 0 3px;}
-  .logrow .when{font-family:var(--mono);font-size:12px;color:var(--ink-3);}
-  .logrow .role{font-family:var(--mono);font-size:12px;color:var(--ink-2);margin-top:8px;margin-bottom:0;}
-  .logrow .out{font-size:14.5px;color:var(--ink-2);margin:0 0 9px;line-height:1.5;}
-  .logrow .out .arr{color:var(--acc);}
-  .logrow .out b{color:var(--ink);font-weight:600;}
+  .exp-thesis{font-size:17.5px;color:var(--ink-2);line-height:1.7;max-width:66ch;margin:0;}
+  .exp-thesis b{color:var(--ink);font-weight:600;}
+  .exp-thesis .acc{color:var(--acc);font-weight:600;}
+  .explog{margin-top:38px;border-top:1px solid var(--line);}
+  .exprow{display:grid;grid-template-columns:250px 1fr;gap:44px;padding:34px 0;border-bottom:1px solid var(--line);}
+  .exprow .co2{font-family:var(--serif);font-weight:600;font-size:22px;letter-spacing:-.01em;margin:0 0 7px;color:var(--ink);}
+  .exprow .kick{font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;color:var(--ink-3);margin:0;line-height:1.5;}
+  .exprow .step{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink-3);margin:0 0 9px;text-transform:uppercase;}
+  .exprow .move{font-family:var(--serif);font-weight:600;font-size:clamp(23px,2.7vw,31px);letter-spacing:-.018em;line-height:1.1;margin:0 0 14px;color:var(--acc);}
+  .exprow .note{font-size:15px;color:var(--ink-2);line-height:1.64;margin:0;max-width:58ch;}
+  .exprow .note em{font-style:italic;color:var(--ink);font-weight:600;}
+  .exprow .note b{color:var(--ink);font-weight:600;}
+  .exprow .receipt{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:16px 0 0;}
+  .exprow .receipt b{color:var(--ink-2);font-weight:600;}
+  .exp-foot{margin-top:30px;font-family:var(--mono);font-size:13.5px;color:var(--acc);letter-spacing:.01em;}
+  @media(max-width:760px){.exprow{grid-template-columns:1fr;gap:14px;}}
 
   .wbig{display:block;border:1px solid var(--line);border-radius:14px;padding:34px 36px;background:var(--panel);transition:.18s;}
   .wbig:hover{border-color:var(--acc);}
@@ -432,42 +438,64 @@
   </section>
 
   <section class="sec wrap" id="experience">
-    <div class="sec-top"><h2>Experience</h2><span class="n">product · ai · finance</span></div>
-    <div class="log">
-      <div class="logrow">
+    <div class="sec-top"><h2>Experience</h2><span class="n">the same move, four times</span></div>
+    <p class="exp-thesis">Read top to bottom, my resume looks like four different jobs. It is really <b>one move, run four times</b>: find someone who is good at their work, get inside their workflow until I understand it better than they can explain it, and <span class="acc">turn it into a product</span>. Each time, I went a little deeper. Lately the product is an agent. The move hasn't changed.</p>
+
+    <div class="explog">
+      <div class="exprow">
         <div>
-          <p class="co">Commure</p>
-          <div class="when">2023-2024 · Series D</div>
-          <p class="role">PM, AI-Powered Enterprise Platforms</p>
+          <p class="co2">Société Générale</p>
+          <p class="kick">2019–2021 · my first desk<br/>PM, trading platform &amp; algos</p>
         </div>
         <div>
-          <p class="out"><span class="arr">→</span> AI-to-billing on fine-tuned LLMs · <b>+20% revenue</b>, –25% denials, 150+ orgs</p>
-          <p class="out"><span class="arr">→</span> ML customer-health scoring · <b>–50% churn</b>, +$2M recovered</p>
-        </div>
-      </div>
-      <div class="logrow">
-        <div>
-          <p class="co">JPMorgan</p>
-          <div class="when">2021-2023 · Research Portal</div>
-          <p class="role">PM &amp; AI Strategy</p>
-        </div>
-        <div>
-          <p class="out"><span class="arr">→</span> Audio-to-signal AI pipeline · <b>+$5M revenue</b>, +30% fine-tune precision</p>
-          <p class="out"><span class="arr">→</span> Trade-recommendation ground truth · <b>+45% profit</b>, +30% volume</p>
+          <p class="step">Move 01 · build for the expert</p>
+          <p class="move">Learn the client's workflow. Build them the platform.</p>
+          <p class="note">My first job, on a sales and trading desk. It taught me the whole thing starts the same way every time: you live inside someone else's workflow until you can see what they actually need, then you build it for them. Everything after this is a variation on that.</p>
+          <p class="receipt">Single-dealer platform · <b>+300% active users</b>, +170% flow</p>
         </div>
       </div>
-      <div class="logrow">
+
+      <div class="exprow">
         <div>
-          <p class="co">Société Générale</p>
-          <div class="when">2019-2021 · Trading</div>
-          <p class="role">PM, Trading Platform &amp; Algorithms</p>
+          <p class="co2">JPMorgan</p>
+          <p class="kick">2021–2023 · Fed research<br/>PM &amp; AI strategy</p>
         </div>
         <div>
-          <p class="out"><span class="arr">→</span> Single-dealer platform growth · <b>+300% active users</b>, +170% flow</p>
-          <p class="out"><span class="arr">→</span> ECN / API integration expansion · <b>+30% sales</b></p>
+          <p class="step">Move 02 · automate the brain</p>
+          <p class="move">Stop building for the expert. Become one.</p>
+          <p class="note">I built a system that watched, monitored, analyzed and wrote up Fed speeches the way a strategist does, modeled as modules. My boss looked at it and said, <em>you automated my brain.</em> That was the signal. It is also where I first understood that the real product is the evaluation: what to label, what counts as good, where to put the gates.</p>
+          <p class="receipt">Audio-to-signal pipeline · <b>+$5M revenue</b>, +45% desk profit</p>
+        </div>
+      </div>
+
+      <div class="exprow">
+        <div>
+          <p class="co2">Commure</p>
+          <p class="kick">2023–2024 · healthcare<br/>PM, AI enterprise platforms</p>
+        </div>
+        <div>
+          <p class="step">Move 03 · automate the flow</p>
+          <p class="move">Same move, new domain.</p>
+          <p class="note">Watch how a medical biller actually completes the flow, end to end, then automate every step of it. I wasn't there long, but it confirmed the instinct travels: the domain changes, the move doesn't.</p>
+          <p class="receipt">AI-to-billing on fine-tuned LLMs · <b>+20% revenue</b>, –25% denials</p>
+        </div>
+      </div>
+
+      <div class="exprow">
+        <div>
+          <p class="co2">ChatGeneT → Valence</p>
+          <p class="kick">2024–present · building it now<br/>co-founder</p>
+        </div>
+        <div>
+          <p class="step">Move 04 · decompose the person</p>
+          <p class="move">Automate not the work, but the person doing it.</p>
+          <p class="note">A clinical patient simulator. To build it you realize a patient is more modular than they look: what they say is really <b>content × tone × a decision tree</b>. Once you can decompose a person into parts, you can rebuild them. That is the whole thesis behind what I build now: getting what is in an expert's head out, and into an agent.</p>
+          <p class="receipt">Clinical dialogue · hallucinations held to <b>0.31%</b></p>
         </div>
       </div>
     </div>
+
+    <p class="exp-foot">Workflow in, product out. Six years compounding one instinct.</p>
   </section>
 
   <section class="sec wrap" id="writing">
