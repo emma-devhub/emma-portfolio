@@ -1,4 +1,4 @@
-// Generated from designs/portfolio-redesign — do not hand-edit.
+// Generated from designs/portfolio-redesign by scripts/port.py — do not hand-edit.
 export const homeMarkup = String.raw`
 <header>
   <nav>
