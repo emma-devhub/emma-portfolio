@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>OpenAI's Finance Team: How AI Is Reshaping Internal Workflows · Emma Sun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700;1,8..60,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+<style>
+ :root{--bg:#fcfcfd;--ink:#16181d;--ink-2:#454953;--acc:#1B365D;--line:#e9eaee;--serif:"Source Serif 4",Georgia,serif;--mono:"JetBrains Mono",monospace;}
+ *{box-sizing:border-box;} html{scroll-behavior:smooth;}
+ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);-webkit-font-smoothing:antialiased;}
+ .top{border-bottom:1px solid var(--line);} .top .in{max-width:720px;margin:0 auto;padding:20px 24px;}
+ .back{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--acc);text-decoration:none;} .back:hover{opacity:.65;}
+ main{max-width:680px;margin:0 auto;padding:56px 24px 96px;}
+ .tag{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin-bottom:14px;}
+ h1{font-weight:700;font-size:clamp(30px,5vw,44px);line-height:1.1;letter-spacing:-.02em;margin:0 0 14px;}
+ .dek{font-style:italic;font-size:19px;color:var(--ink-2);line-height:1.5;margin:0 0 36px;}
+ main p{font-size:18.5px;line-height:1.72;color:#23262d;margin:0 0 20px;}
+ main h2{font-weight:700;font-size:24px;letter-spacing:-.01em;margin:42px 0 12px;}
+ main h3{font-weight:600;font-size:19.5px;letter-spacing:-.01em;color:var(--acc);margin:30px 0 10px;}
+ main strong{font-weight:700;color:var(--ink);} main em{font-style:italic;}
+ .tbl{margin:24px 0 8px;overflow-x:auto;}
+ table{border-collapse:collapse;width:100%;font-size:15.5px;line-height:1.5;}
+ th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line);}
+ th{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--acc);}
+ td:first-child{font-family:var(--mono);font-size:13px;white-space:nowrap;color:var(--ink-2);}
+ .end{margin-top:48px;font-family:var(--mono);font-size:12px;color:#9aa0aa;border-top:1px solid var(--line);padding-top:20px;} .end a{color:var(--acc);}
+</style></head>
+<body>
+ <div class="top"><div class="in"><a class="back" href="/">← Emma Sun</a></div></div>
+ <main><div class="tag">Essay</div><h1>OpenAI's Finance Team: How AI Is Reshaping Internal Workflows</h1>
+<p class="dek">What OpenAI's Strategic Finance team is really teaching the rest of us is not how to build a faster dashboard. It is how a domain expert should rethink the boundary between their own judgment and the machine's.</p>
+
+<p>I happened to come across a series on LinkedIn run by OpenAI's Strategic Finance team (StratFin), called #12DaysofChatCodexStratfin#. It was started by the team's head, Stacie Faggioli, with public backing from CFO Sarah Friar. In a "build in public" spirit, the series lays out, case by case, how OpenAI's finance team is using internal tools like ChatGPT and Codex to remake their day-to-day work. I think there may be something here for non-technical people (non-tech), and especially for knowledge workers with deep domain expertise, so I want to share a few observations and thoughts.</p>
+
+<h2>1. Three core cases show a structural shift in how work gets done</h2>
+<p>Across all 13 cases, three stood out to me, because each one reveals, from a different angle, how deeply AI is reshaping professional work.</p>
+
+<h3>1.1 The Investor Relations GPT: a flywheel for institutional memory</h3>
+<p>The first is Day 12's Investor Relations GPT (IR GPT), presented by Chengpeng, who leads business finance.</p>
+<p>Traditionally, handling large-scale investor due-diligence requests is extremely time-consuming, labor-intensive work. This team's solution began as a side-product of an internal hackathon in the fall of 2024, and has since grown into a powerful system that can analyze diligence questions, draft responses, and help produce investor materials. Paired with Codex, this system supported a team of just three people who, without hiring a single investment advisor, handled more than 2,000 diligence requests, saved an estimated tens of thousands of hours of work, and supported more than $180 billion in total fundraising.</p>
+<p>To me, this case is a concrete application of the ideas behind reinforcement learning. At its core is a flywheel: the finalized responses that get confirmed and sent to investors are fed back into the knowledge base, forming an institutional memory that keeps reinforcing itself. This is the heart of an agentic workflow: you are not just using a tool, you are "teaching" it with every interaction, the way you would coach a junior employee. This teach loop gives the tool the ability to optimize itself, which is completely different from the static interaction of a traditional dashboard: with a dashboard, each use is one-and-done, and the user's interactions never get meaningfully captured; with this, the system gets smarter the more you use it. It means each request is no longer about "producing a document," but about building a queryable interface on top of institutional memory, pointing toward a future where documents disappear and anyone who wants to know something simply asks the living system directly.</p>
+
+<h3>1.2 Presentation to podcast: a new way to interact with information</h3>
+<p>The second is Day 10's "turning a presentation into a podcast," presented by data scientist Varghese George. This is the only case in the series that breaks out of the traditional dashboard-and-reconciliation frame. The pain point: in data-science workflows, the "delivery" step is often overlooked, and a lot of valuable insight ends up buried in presentations shared over Slack that executives never have time to read in full. The solution: using Codex and OpenAI's text-to-speech API, they built a reusable Codex skill that automatically distills the core narrative of a document or presentation and turns it into podcast-style audio with customizable tone and pacing.</p>
+<p>What I find instructive here is that it shows how AI can change the basic paradigm of how people interact with information. People like to converse; they like not only to read but also to listen. AI, and voice AI in particular, makes it possible to turn any content into a podcast, which fits the way humans naturally interact. I think voice AI has enormous potential at the product level, especially in business models like automated customer service. The value of a technological shift lies in letting us do things we could not do before. Turning content or ideas into a voice form that simulates human conversation is exactly the kind of breakthrough we could not achieve before the AI boom.</p>
+
+<h3>1.3 The forecast-adjustment workflow: human-in-the-loop done right</h3>
+<p>The last is Day 9's forecast-adjustment workflow, presented by data scientist Jackson Wang. This system, which Stacie Faggioli called "the best forecasting interface I have ever used," took Jackson just a few weeks to build, where a comparable system used to take two years. The pain point: updating a financial forecast means pulling together a mass of signals scattered across many places, including machine-learning model outputs, the assumptions in the previous forecast, customer background, insights from the RevOps team, discussions in Slack, and product-launch plans. Jackson's solution was to use Codex to bring all these signal sources into a single interactive interface. There, the user can compare scenarios, review customer-level forecast recommendations, and make human-in-the-loop adjustments. For example, when the model fails to capture a large commitment from a new customer, the app proactively surfaces the relevant evidence and shows, in real time, how that manual adjustment will flow through the quarterly and full-year forecasts, and how it differs from the previous version.</p>
+<p>I like this case because, while dashboard-style workflows are all fine, this one shows what human-in-the-loop is supposed to look like. The machine takes care of most of the repetitive work, but the boundary between human and machine is not a clean straight line. It is a jagged, uneven frontier, more like a seesaw: on some things, the machine is already better than you; on others, you, as the domain expert, are still better than the machine. What makes Jackson impressive is that he knew very clearly where that seesaw boundary fell in his own work, and then built a working model around his own way of working. As knowledge experts or domain experts, how we define this frontier and find the best point of human-machine collaboration is itself deeply instructive.</p>
+
+<h2>2. Four shared structural changes are underway</h2>
+<p>If you look only at the end products, then honestly, the takeaway from these 13 cases might feel a little flat to me: the vast majority are dashboards and the automation of some kind of glue work. Even so, I observed four shared structural changes.</p>
+<p><strong>First, what gets automated is the "glue work," not the analysis itself.</strong> In nearly every story, the agent's core job is to seamlessly connect a set of otherwise isolated systems, including Anaplan, Databricks, human capital management, recruiting, CRM, Gong call transcripts, Slack, email, purchase orders, and accrual systems. This is work that should never have fallen to highly paid analysts in the first place, yet it used to consume huge amounts of their time. What the agent replaces is exactly that tedious data plumbing standing between the analyst and the insight.</p>
+<p><strong>Second, most of the presenters are not programmers, but their output is software.</strong> Phrases like "I don't have a coding background," "the finance team builds the tools themselves," and "natural language becomes the interface to the model" come up again and again. The essence is that a domain expert, by describing their own intent in natural language, directly "compiles" a highly customized piece of software. The outputs shared here happen to be mostly dashboards, but that is only because the presentation layer of finance work is usually a dashboard; the underlying "compilation" mechanism is general.</p>
+<p><strong>Third, behind every story is the death of a cross-team dependency chain.</strong> The finance team no longer needs to file requests with business intelligence (BI), engineering, or data science, wait in a priority queue, and then sit through a long development cycle. This collapse of the dependency chain is structural; it redefines the boundary of who can, without anyone else's sign-off, directly create a tool that is usable for decision-making.</p>
+<p><strong>Fourth, the pace of work is compressed, and periodic tasks start turning into continuous work.</strong> CFO Sarah Friar pointed this out in her opening remarks: the periodic, manual, backward-looking work of the past is turning into dynamic, decision-oriented processes. The marketing-budget allocation in the Day 1 case went from periodic review to weekly dynamic adjustment; the ad forecasting on Day 8 went from monthly to weekly and even daily. Once the marginal cost of a single analysis approaches zero, the result is not merely doing the same thing faster, but beginning to take on the analyses that simply were not worth it before because they cost too much. Reallocating capital once a week was not technically impossible in the past; it just was not economically worth it. This is a change in behavior, not just an improvement in efficiency.</p>
+
+<h2>3. What I most want to share</h2>
+<p>If you look only at the end products, these cases are easy to read as a set of faster dashboards, more automated reconciliation tools, and smoother forecasting and reporting workflows. But I think what is more worth looking at is not what they "produced," but what they imply about how domain experts should rethink their relationship with AI.</p>
+<p>Jackson's forecasting tool reminds me that a domain expert first has to redefine the frontier of human-machine collaboration: which judgments can be handed to the machine, which judgments still have to be made by a human, and how the two mesh inside the same workflow. The doc-to-podcast case reminds me that the most interesting thing about a new technology is often not doing an old process faster, but creating new forms of interaction that could not have existed at scale before. And IR GPT reminds me that AI's most distinctive capability is not just generation, but learning continuously through real use: every correction, confirmation, and piece of feedback you give is actually teaching it to become more like a junior colleague who understands how you work.</p>
+<p>This matters for all non-tech knowledge workers. What is truly scarce in the future may not be whether you can write code, but whether you can break your own domain judgment down clearly, know where to let the machine take over and where human judgment must be kept, and how to turn every use into a round of training. Extending this from a product angle, the real value here is not an AI that can write dashboards, but the entire capability that lets a domain expert use natural language to compile software that connects to complex internal data and is effectively governed. Finance is just the first function to be systematically remade, because its "glue work" pain is the deepest and its data density the highest. The future moat most likely will not lie in "generation" itself, but at the two ends: one end is deep connection to, and access rights over, a company's complex internal systems; the other is the ability to take a one-off, clever individual method and turn it into an asset that the whole organization can reuse, share, and iterate on.</p>
+
+<h2>4. Appendix: the full list of 13 cases</h2>
+<p>Below is the complete list of the 13 cases from the #12DaysofChatCodexStratfin# series.</p>
+<div class="tbl">
+<table>
+<thead><tr><th>Day</th><th>Presenter</th><th>Core topic</th></tr></thead>
+<tbody>
+<tr><td>Day 1</td><td>Stacie Faggioli</td><td>Using Codex to dynamically reallocate the marketing budget</td></tr>
+<tr><td>Day 2</td><td>Jake Stamell</td><td>Turning frontline signals (email/Slack/Gong) into sales insight</td></tr>
+<tr><td>Day 3</td><td>Kathir Sundarraj</td><td>A headcount-visibility dashboard that auto-sends Slack updates</td></tr>
+<tr><td>Day 4</td><td>Scott Dean</td><td>Building a customized finance dashboard from scratch</td></tr>
+<tr><td>Day 5</td><td>Esau Torres &amp; Amir Tavoli</td><td>Automating month-end budget-vs-actual (BvA) reconciliation</td></tr>
+<tr><td>Day 6</td><td>Kyle K.</td><td>Turning a close presentation into a Codex app with sign-off governance</td></tr>
+<tr><td>Day 7</td><td>Tanika Mehra</td><td>Syncing P&amp;L refreshes to keep Sheets, dashboard, and reporting consistent</td></tr>
+<tr><td>Day 8</td><td>Stacy Young</td><td>Ad-business forecasting: an interactive app moving from monthly to weekly to daily</td></tr>
+<tr><td>Day 9</td><td>Jackson Wang</td><td>An intelligent forecast-adjustment workflow</td></tr>
+<tr><td>Day 10</td><td>Varghese George</td><td>Turning a document or presentation into a podcast</td></tr>
+<tr><td>Day 11</td><td>Guilherme Souza</td><td>Building a long-range planning model in ChatGPT for Excel/Sheets</td></tr>
+<tr><td>Day 12</td><td>Chengpeng M.</td><td>An IR GPT for investor diligence and fundraising</td></tr>
+<tr><td>Day 13 (bonus)</td><td>Kevin X.</td><td>Using Codex's built-in browser to quickly build a dashboard</td></tr>
+</tbody>
+</table>
+</div>
+<p>Readers who are interested can view the full topic feed via LinkedIn (requires logging in).</p>
+
+ <div class="end">By Emma Sun · <a href="/">back to portfolio</a></div></main>
+</body></html>

@@ -238,6 +238,12 @@ export const homeMarkup = String.raw`
     <div class="sec-top"><h2><span class="hl">Writing</span> &amp; notes</h2><span class="n">thinking in public</span></div>
     <p class="write-intro">I think in public, and have for years. Most of it lives in Chinese, where I write and podcast on AI and markets for an audience of <b>tens of thousands of finance and AI professionals</b>. These are the English distillations: the few ideas I keep coming back to.</p>
     <div class="write-stack">
+      <a class="wbig" href="/essays/openai-finance-team.html">
+        <div class="src">Essay</div>
+        <h4>OpenAI's Finance Team: How AI Is Reshaping Internal Workflows</h4>
+        <p class="dek">OpenAI's Strategic Finance team built in public for 12 days. The real lesson isn't a faster dashboard, it's how a domain expert should redraw the boundary between their own judgment and the machine's.</p>
+        <span class="more">Read →</span>
+      </a>
       <a class="wbig" href="/essays/the-evaluation-gap.html">
         <div class="src">Essay</div>
         <h4>The Evaluation Gap</h4>
